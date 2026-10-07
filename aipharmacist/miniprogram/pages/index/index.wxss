@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 60rpx;
+}
+
+.title {
+  font-size: 52rpx;
+  font-weight: 600;
+  color: #2BB3A3;
+}
+
+.subtitle {
+  margin-top: 16rpx;
+  font-size: 28rpx;
+  color: #888888;
+}
+
+.form {
+  margin-top: 100rpx;
+  width: 100%;
+}
+
+.role-tip {
+  background: #E6F5F2;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333333;
+ 
+}
+
+.input {
+  background: #ffffff;
+  border-radius: 16rpx;
+  height: 96rpx;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.role-btn {
+  width: 100%;
+  height: 100rpx;
+  border-radius: 16rpx;
+  background: #2BB3A3;
+  color: #ffffff;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+}
+
+.role-btn.child {
+  background: #ffffff;
+  color: #2BB3A3;
+  border: 2rpx solid #2BB3A3;
+}

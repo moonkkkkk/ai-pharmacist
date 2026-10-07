@@ -1,0 +1,9 @@
+{
+  "name": "generateLink",
+  "version": "1.0.0",
+  "description": "生成绑定家人的小程序码图片",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

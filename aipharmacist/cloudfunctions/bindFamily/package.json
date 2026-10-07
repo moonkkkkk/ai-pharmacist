@@ -1,0 +1,9 @@
+{
+  "name": "bindFamily",
+  "version": "1.0.0",
+  "description": "绑定家人：子女生成口令，老人输入口令完成关联",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

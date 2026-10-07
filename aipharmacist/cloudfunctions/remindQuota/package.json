@@ -1,0 +1,9 @@
+{
+  "name": "remindQuota",
+  "version": "1.0.0",
+  "description": "漏服通知次数：查询/增加（上限99）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

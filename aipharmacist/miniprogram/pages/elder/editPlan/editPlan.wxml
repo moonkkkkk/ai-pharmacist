@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="form-item" wx:if="{{role === 'child' && !id}}">
+    <view class="label">谁在吃药</view>
+    <picker mode="selector" range="{{ownerNames}}" value="{{ownerIndex}}" bindchange="onOwnerChange">
+      <view class="picker-value">{{ownerNames[ownerIndex] || '请选择'}} ›</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">药品名称</view>
+    <input class="input" placeholder="请输入药品名" value="{{drug_name}}" bindinput="onInputName" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">类别</view>
+    <picker mode="selector" range="{{categories}}" bindchange="onCategoryChange">
+      <view class="picker-value">{{drug_category}} ›</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">服用时间</view>
+    <picker mode="time" value="{{take_time}}" bindchange="onTimeChange">
+      <view class="picker-value">{{take_time}} ›</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">服用时机</view>
+    <picker mode="selector" range="{{timings}}" bindchange="onTimingChange">
+      <view class="picker-value">{{timing}} ›</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">用药频率</view>
+    <view class="stepper-row">
+      <view class="stepper-btn" bindtap="decInterval">−</view>
+      <view class="stepper-mid">
+        <text class="stepper-label">每</text>
+        <input class="stepper-input" type="number" value="{{intervalDays}}" bindinput="onInputInterval" />
+        <text class="stepper-label">天一次</text>
+      </view>
+      <view class="stepper-btn" bindtap="incInterval">＋</view>
+    </view>
+    <view class="stepper-hint">间隔 1 天即每天服用；如 7 天即每周一次</view>
+  </view>
+
+  <button class="save-btn" bindtap="save">保存</button>
+</view>

@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="profile-card">
+    <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image wx:if="{{avatar}}" class="avatar" src="{{avatar}}" mode="aspectFill" />
+      <view wx:else class="avatar" style="position: relative; left: -80rpx; top: 0rpx">{{role === 'child' ? '子' : '老'}}</view>
+    </button>
+    <view class="info">
+      <input style="width: 274rpx; height: 87rpx; display: block; box-sizing: border-box"
+        class="name-input"
+        type="nickname"
+        value="{{nickname}}"
+        placeholder="点击设置昵称"
+        bindinput="onInputNickname"
+        bindblur="saveNickname"
+      />
+      <view class="role">{{role === 'child' ? '子女' : '老人'}}</view>
+    </view>
+  </view>
+
+  <view class="cell" bindtap="goBind">
+    <view class="cell-label">{{role === 'child' ? '家人管理' : '关联' + roleLabel}}</view>
+    <view class="cell-value">{{family.length ? '已关联 ' + family.length + ' 位 ›' : '去绑定 ›'}}</view>
+  </view>
+
+  <view class="cell" bindtap="bindPhone">
+    <view class="cell-label">手机号</view>
+    <view class="cell-value">{{phone === '未绑定' ? '去绑定 ›' : phone}}</view>
+  </view>
+
+  <button class="logout-btn" bindtap="logout">退出登录</button>
+</view>

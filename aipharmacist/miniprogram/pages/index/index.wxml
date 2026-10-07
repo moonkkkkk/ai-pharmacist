@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="title">AI 云药师</view>
+  <view class="subtitle">让慢病老人不再漏服一粒药</view>
+
+  <view wx:if="{{needRole}}" class="form">
+    
+
+    <input class="input" type="nickname" placeholder="点击填入昵称（选填）" value="{{nickname}}" bindinput="onInputNickname" />
+    <input
+      class="input"
+      type="number"
+      maxlength="11"
+      placeholder="手机号（选填，用于漏服短信提醒）"
+      value="{{phone}}"
+      bindinput="onInputPhone"
+    />
+
+    <button class="role-btn" data-role="elder" bindtap="chooseRole" style="width: 460rpx; height: 125rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 37rpx; position: relative">我是老人 · 管理自己的药</button>
+    <button class="role-btn child" data-role="child" bindtap="chooseRole" style="width: 460rpx; height: 125rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 29rpx; position: relative">我是子女 · 帮家人管理</button>
+  </view>
+</view>

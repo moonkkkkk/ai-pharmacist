@@ -1,0 +1,9 @@
+{
+  "name": "getOverview",
+  "version": "1.0.0",
+  "description": "返回指定成员的今日概览 + 近7天趋势 + 周漏服数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

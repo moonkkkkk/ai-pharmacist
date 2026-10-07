@@ -1,0 +1,833 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="https://modao.cc"><title>未命名原型-总览</title></head><body><style data-mb-generated>@font-face {
+  font-family: 'PingFangSC';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PingFangSC-Semibold'), local('PingFang SC Semibold'), local('.PingFangSC-Semibold'), local('.PingFang SC Semibold'), url('https://modao.cc/mb-sigma/fonts/zh-CN/PingFangSC/SemiBold.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PingFangSC';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PingFangSC-Regular'), local('PingFang SC Regular'), local('.PingFangSC-Regular'), local('.PingFang SC Regular'), local('PingFangSC'), local('PingFang SC'), url('https://modao.cc/mb-sigma/fonts/zh-CN/PingFangSC/Regular.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('NotoSans-Regular'), local('Noto Sans Regular'), local('.NotoSans-Regular'), local('.Noto Sans Regular'), local('NotoSans'), local('Noto Sans'), url('https://modao.cc/mb-sigma/fonts/en/NotoSans/Regular.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PMZDBiaoTi';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PMZDBiaoTi-Regular'), local('庞门正道标题体 Regular'), local('.PMZDBiaoTi-Regular'), local('.庞门正道标题体 Regular'), local('PMZDBiaoTi'), local('庞门正道标题体'), url('https://modao.cc/mb-sigma/fonts/zh-CN/PMZDBiaoTi/Regular.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PingFangSC';
+  font-style: normal;
+  font-weight: 500;
+  src: local('PingFangSC-Medium'), local('PingFang SC Medium'), local('.PingFangSC-Medium'), local('.PingFang SC Medium'), url('https://modao.cc/mb-sigma/fonts/zh-CN/PingFangSC/Medium.woff2') format('woff2');
+  font-display: swap;
+}
+* {
+    box-sizing: border-box;
+  }
+  :not(input) {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  body {
+    background-color: #EFEFEF;
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    color: rgb(82, 94, 113);
+    font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial,
+      "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+      "WenQuanYi Zen Hei", sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  button,
+  select {
+    cursor: pointer;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+  button.mb-wrapper,
+  button.mb-icon {
+    appearance: none;
+    border: 0;
+    margin: 0;
+    background: transparent;
+    color: inherit;
+  }
+  p {
+    margin: 0;
+  }
+  .mb-visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  .mb-document,
+  main.mb-page {
+    position: relative;
+  }
+  main.mb-page {
+    box-sizing: border-box;
+  }
+  .mb-canvas {
+    position: relative;
+    overflow: hidden;
+  }
+  .mb-route-canvas[hidden] {
+    display: none !important;
+  }
+  .mb-page-directory {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 2147483646;
+    width: 180px;
+    max-height: calc(100vh - 32px);
+    overflow: hidden;
+    border: 1px solid rgba(0, 18, 38, 0.15);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 4px 12px rgba(0, 18, 38, 0.12);
+    color: #415058;
+  }
+  .mb-page-directory.mb-collapsed {
+    width: 34px;
+    height: 34px;
+    max-height: none;
+  }
+  .mb-page-directory-details {
+    width: 100%;
+  }
+  .mb-page-directory-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    padding-right: 30px;
+    cursor: grab;
+    font-weight: 600;
+    list-style: none;
+    user-select: none;
+    touch-action: none;
+  }
+  .mb-page-directory-count {
+    display: inline-flex;
+    gap: 3px;
+    color: #737982;
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+  }
+  .mb-page-directory-title:active {
+    cursor: grabbing;
+  }
+  .mb-page-directory-title::-webkit-details-marker {
+    display: none;
+  }
+  .mb-page-directory-title::after {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    content: '';
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform 120ms ease;
+  }
+  .mb-page-directory-details:not([open]) .mb-page-directory-title::after {
+    transform: translateY(-35%) rotate(-45deg);
+  }
+  .mb-page-directory.mb-collapsed .mb-page-directory-title {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    padding: 0;
+    font-size: 0;
+  }
+  .mb-page-directory.mb-collapsed .mb-page-directory-title::after {
+    right: 12px;
+  }
+  .mb-page-directory.mb-collapsed .mb-page-directory-label,
+  .mb-page-directory.mb-collapsed .mb-page-directory-count {
+    display: none;
+  }
+  .mb-page-directory-list {
+    max-height: calc(100vh - 82px);
+    overflow: auto;
+    border-top: 1px solid rgba(0, 18, 38, 0.1);
+    padding: 4px;
+  }
+  .mb-page-directory-link {
+    width: 100%; border: 0; background: transparent; font: inherit;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    overflow: hidden;
+    padding: 6px 8px;
+    border-radius: 4px;
+    color: inherit;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .mb-page-directory-index {
+    flex: 0 0 18px;
+    color: #8b919a;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .mb-page-directory-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mb-page-directory-link:hover { background: rgba(22, 132, 252, 0.08); }
+  .mb-page-directory-link.mb-active {
+    background: rgba(22, 132, 252, 0.12);
+    color: #1684fc;
+  }
+  .mb-overlay {
+    position: fixed;
+    z-index: 2147483647;
+  }
+  .mb-runtime-overlay-root {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+  }
+  .mb-runtime-overlay-root > * { pointer-events: auto; }
+  .mb-runtime-overlay-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: auto;
+  }
+  .mb-runtime-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    background: transparent;
+    pointer-events: auto;
+  }
+  .mb-overlay-border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .mb-node {
+    position: absolute;
+    transform-origin: center center;
+  }
+  .mb-container-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+  .mb-container-content.mb-isClipContent {
+    overflow: hidden;
+  }
+  .mb-rich-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+    word-wrap: break-word;
+  }
+  .mb-wButton,
+  .mb-wIconButton {
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+  }
+  .mb-button-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .mb-icon-right {
+    flex-direction: row-reverse;
+  }
+  .mb-button-icon {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .mb-button-icon + .mb-rich-text {
+    padding: 0 !important;
+    width: fit-content !important;
+  }
+  .mb-icon-svg.mb-fill {
+    fill: currentColor;
+  }
+  .mb-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    -webkit-user-drag: none;
+  }
+  .mb-wImage > .mb-image-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    user-select: none;
+  }
+  .mb-image {
+    position: absolute;
+    display: block;
+    max-width: none;
+  }
+  .mb-form-control {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 8px;
+    border: 0;
+    border-radius: inherit;
+    outline: 0;
+    background: inherit;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+  }
+  .mb-selection-control {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    align-content: space-between;
+  }
+  .mb-selection-option {
+    display: flex;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .mb-selection-option input {
+    appearance: none;
+    flex: none;
+    margin: 0 8px 0 0;
+    border: 1px solid;
+    background-clip: content-box;
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+  }
+  .mb-selection-option input[type='radio'] {
+    border-radius: 50%;
+  }
+  .mb-selection-option input[type='checkbox'] {
+    border-radius: 12.5%;
+    background-clip: border-box;
+  }
+  .mb-selection-option input.mb-checked[type='radio'] {
+    padding: calc(1em / 5.3);
+  }
+  .mb-chart-data {
+    width: 100%;
+    height: 100%;
+  }
+  .mb-tooltip {
+    overflow: visible;
+  }
+  .mb-tooltip-arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    bottom: -5px;
+    transform: rotate(45deg);
+    background: inherit;
+  }
+  .mb-tooltip-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .mb-switch-control {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+  .mb-switch-control > input {
+    position: absolute;
+    opacity: 0;
+  }
+  .mb-switch-track {
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: #c7c7cc;
+  }
+  .mb-switch-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: calc(100% - 4px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px #0003;
+  }
+  .mb-status-bar {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+  }
+  .mb-file-input,
+  .mb-media,
+  .mb-audio-control,
+  .mb-slider-control,
+  .mb-webpage-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .mb-map-grid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(30deg, transparent 48%, #dce3dc 49% 51%, transparent 52%),
+      linear-gradient(-30deg, #eef2ed 48%, #dce3dc 49% 51%, #eef2ed 52%);
+    background-size: 36px 36px;
+  }
+  .mb-map-pin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #e44335;
+    font-size: 24px;
+    transform: translate(-50%, -50%);
+  }
+  .mb-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+  }
+  .mb-table td {
+    border: 1px solid #d9dde3;
+    padding: 4px;
+  }
+  .mb-search-control,
+  .mb-stepper-control,
+  .mb-pagination,
+  .mb-segmented,
+  .mb-tabs-list {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+  .mb-search-control {
+    gap: 6px;
+    padding: 0 8px;
+  }
+  .mb-search-control input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+  }
+  .mb-stepper-control > * {
+    display: grid;
+    height: 100%;
+    place-items: center;
+  }
+  .mb-stepper-control output {
+    flex: 1;
+  }
+  .mb-menu ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mb-menu li {
+    flex: 1;
+  }
+  .mb-menu button {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+  }
+  .mb-collapse {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+  .mb-collapse summary {
+    padding: 6px;
+  }
+  .mb-shape-svg,
+  .mb-line-svg,
+  .mb-arrow-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .mb-shape-svg polygon {
+    fill: currentColor;
+  }
+  .mb-line-svg line,
+  .mb-arrow-svg line {
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  .mb-arrow-svg marker path {
+    fill: currentColor;
+  }
+  .mb-placeholder-content {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+  }
+  .mb-code-content,
+  .mb-markdown-content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    padding: 8px;
+    white-space: pre-wrap;
+  }
+  .mb-keyboard-keys {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 6px;
+  }
+  .mb-keyboard-keys kbd {
+    display: grid;
+    flex: 1 0 8%;
+    place-items: center;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0 1px 1px #0003;
+  }
+  .mb-swimlane-title {
+    height: 28px;
+    padding: 4px;
+    border-bottom: 1px solid currentColor;
+  }
+  .mb-flow-label {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+  }
+  .mb-tree-list,
+  .mb-mind-list {
+    margin: 0;
+    padding: 8px 8px 8px 24px;
+  }
+  .mb-graph-surface {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#aeb4bc 1px, transparent 1px);
+    background-size: 12px 12px;
+  }
+  .mb-tree-node.mb-wLr {
+    background:rgba(255, 140, 25, 0.15) !important;
+    border:1px solid #FF8C19 !important;
+  }
+
+  .mb-tree-node[hidden] {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .mb-canClickableHighWidget {
+    cursor: pointer;
+  }
+
+  @keyframes mbInteractionHighlightFlash {
+    0%, 100% { outline-color: transparent; background-color:transparent;}
+    20%, 60% { outline-color: #ff8c19; background-color:rgba(255, 140, 25, 0.15);}
+    40%, 80% { outline-color: rgba(255, 140, 25, 0.18); }
+  }
+  .mb-interaction-highlight {
+    position: fixed;
+    z-index: 2147483647;
+    pointer-events: none;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    animation: mbInteractionHighlightFlash ease-in-out 0.6s;
+  }
+  .mb-interaction-highlight-root {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(222, 224, 226);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 18, 38, 0.3);
+  }
+.mb-rResCanvas > .mb-canvas-viewport {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      contain: layout;
+      display: flex;
+      flex-direction: column;
+    }
+    .mb-rResCanvas > .mb-canvas-viewport > .mb-container-content {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    .mb-rResCanvas > .mb-canvas-viewport > .mb-container-content.mb-isClipContent { overflow: hidden; }
+.mb-rich-text p,.mb-rich-text h1,.mb-rich-text h2,.mb-rich-text h3,
+  .mb-rich-text h4,.mb-rich-text h5,.mb-rich-text h6,
+  .mb-rich-text blockquote,.mb-rich-text pre { margin-top:0; }
+  .mb-rich-text > :last-child { margin-bottom:0; }
+.mb-wIcon .mb-svg-icon-path-icon { width:100%;height:100%;vertical-align:top; }
+  .mb-wIcon .mb-svg-icon-path-icon.mb-fill { fill:var(--mb-icon-fill); }
+  .mb-wIcon .mb-svg-icon-path-icon.mb-fill g [fill]:not([fill='none']) {
+    fill:var(--mb-icon-fill);stroke:none;
+  }
+  .mb-wIcon .mb-svg-icon-path-icon.mb-fill g [stroke]:not([stroke='none']) {
+    stroke:var(--mb-icon-fill);fill:none;
+  }
+  .mb-wIcon .mb-svg-icon-path-icon.mb-fill g [fill='none'][stroke] {
+    fill:none;stroke:var(--mb-icon-fill);
+  }
+  .mb-wIcon .mb-svg-icon-path-icon.mb-fill g [stroke='none'][fill] {
+    stroke:none;fill:var(--mb-icon-fill);
+  }
+.mb-iPhoneX-StatusBar {
+    display:flex;width:100%;height:100%;align-items:center;
+    justify-content:center;padding:0 14px;
+  }
+  .mb-iPhoneX-StatusBar .mb-StatusBarTime {
+    width:54px;margin-right:auto;margin-left:7px;
+    justify-content:center;font-size:14px;font-weight:600;
+  }
+  .mb-iPhoneX-StatusBar .mb-StatusBarSignal { margin-left:auto; }
+  .mb-iPhoneX-StatusBar .mb-StatusBarSignal,
+  .mb-iPhoneX-StatusBar .mb-StatusBarWifi { margin-right:.4em; }
+  .mb-iPhoneX-StatusBar .mb-status-icon { display:block; }
+.mb-table-widget {
+      width:100%;height:100%;border-collapse:separate;
+      border-spacing:0;table-layout:fixed;
+    }
+    .mb-table-widget td { overflow:hidden;padding:0; }
+    .mb-table-widget .mb-tdDiv {
+      display:flex;width:100%;flex-direction:column;pointer-events:none;
+      overflow:hidden;
+    }
+.mb-elbow-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+    .mb-elbow-text{position:absolute;inset:0;overflow:visible;white-space:pre-wrap}.mb-s-1khryo6{background:rgba(255,255,255,1);border-radius:0px;margin:0}.mb-s-xhz3e3{background:rgba(255,255,255,1)}.mb-s-vh6qvk{background:rgba(255,255,255,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:22px}.mb-s-wd6fxo{background:rgba(7,193,96,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:22px;color:#101010;font-family:PingFangSC;font-size:24px;font-weight:700;font-style:normal;line-height:34px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center}.mb-s-1340zf0{border-radius:0px;display:flex;align-items:center;justify-content:center}.mb-s-17wdgvu{display:block;min-width:19px;min-height:19px;--mb-icon-fill:rgba(108,108,108,1)}.mb-s-1p76hxk{color:rgba(7,193,96,1);font-family:PingFangSC;font-size:16px;font-weight:400;font-style:normal;line-height:23px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces}.mb-s-o6dzs1{color:rgba(154,154,154,1);font-family:PingFangSC;font-size:20px;font-weight:400;font-style:normal;line-height:28px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces}.mb-s-10jnm7g{background:rgba(245,255,245,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:0px}.mb-s-1x31uot{color:rgba(0,0,0,1);font-family:PingFangSC;font-size:16px;font-weight:400;font-style:normal;line-height:23px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces}.mb-s-rpjkwe{display:block;min-width:21px;min-height:21px;--mb-icon-fill:rgba(7,193,96,1)}.mb-s-1hwz9vo{color:rgba(190,190,190,1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:visible;align-items:flex-start;justify-content:flex-start;white-space:pre}.mb-s-buvafd{background:rgba(255,255,255,0.902);border-color:rgba(243,244,246,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:9999px 9999px 9999px 9999px}.mb-s-jlshve{background:rgba(206,206,206,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:100%;color:rgba(0,0,0,1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center}.mb-s-1iz93xu{background:rgba(7,193,96,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:100%;color:rgba(0,0,0,1);font-family:PingFangSC;font-size:14px;font-weight:700;font-style:normal;line-height:20px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center}.mb-s-i3qrzh{background:rgba(0,0,0,0.502);border-radius:0px 0px 0px 0px}.mb-s-trh74h{background:rgba(248,248,248,1);color:rgba(16,16,16,1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-decoration:none;align-items:center;justify-content:center}.mb-s-uek826{color:rgba(16,16,16,1);background:rgba(248,248,248,1)}.mb-s-1nff1zv{color:rgba(0,0,0,1);font-family:PingFangSC;font-size:20px;font-weight:400;font-style:normal;line-height:28px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces}.mb-s-1ptxr3e{color:#101010;font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:visible;align-items:flex-start;justify-content:flex-start;white-space:pre}.mb-s-mk95jx{background:rgba(255,255,255,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:32px}.mb-s-1fgmlpr{color:rgba(0,0,0,1);font-family:PingFangSC;font-size:20px;font-weight:400;font-style:normal;line-height:28px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:visible;align-items:flex-start;justify-content:flex-start;white-space:pre}.mb-s-jluupe{display:block;min-width:29px;min-height:29px;--mb-icon-fill:rgba(108,108,108,1)}.mb-s-2b5x5u{display:block;min-width:30px;min-height:30px;--mb-icon-fill:rgba(108,108,108,1)}.mb-s-jonfu6{display:block;min-width:30px;min-height:30px;--mb-icon-fill:rgba(7,193,96,1)}.mb-s-fw4bh6{background:rgba(255,255,255,1);border-color:rgba(255,255,255,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:0px}.mb-s-obry6y{display:block;min-width:19px;min-height:19px;--mb-icon-fill:rgba(16,16,16,1)}.mb-s-1ft35ez{background:rgba(231,231,231,1);border-radius:3px;color:#101010;font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:center}.mb-s-1msyhrq{border-left:none;border-top:none}.mb-s-myo81q{align-items:center;justify-content:center;font-size:14px;color:rgba(151, 151, 151, 0.9);font-weight:normal;font-style:normal;text-decoration:none;line-height:20px;white-space:pre-wrap;background:#fff;padding:4px}.mb-s-8xvrka{align-items:center;justify-content:center;font-size:14px;color:rgba(0, 0, 0, 0.26);font-weight:normal;font-style:normal;text-decoration:none;line-height:20px;white-space:pre-wrap;background:#fff;padding:4px}.mb-s-1tqubs5{align-items:center;justify-content:center;font-size:14px;color:#101010;font-weight:normal;font-style:normal;text-decoration:none;line-height:20px;white-space:pre-wrap;background:#fff;padding:4px}.mb-s-19tiodt{align-items:center;justify-content:center;font-size:14px;color:rgba(0, 0, 0, 0.9);font-weight:normal;font-style:normal;text-decoration:none;line-height:20px;white-space:pre-wrap;background:#fff;padding:4px}.mb-s-1q16rsl{color:#101010;font-family:PingFangSC;font-size:28px;font-weight:400;font-style:normal;line-height:39px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:visible;align-items:flex-start;justify-content:flex-start;white-space:pre}.mb-s-smtxj2{display:block;min-width:29px;min-height:29px;--mb-icon-fill:rgba(7,193,96,1)}.mb-s-1tefipp{background:linear-gradient(179.303deg,rgba(215,255,250,1) 1%,rgba(255,255,255,0) 100%);border-radius:0px}.mb-s-448ep8{background:rgba(255,255,255,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:44px}.mb-s-9is7p7{border-color:rgba(224,224,224,1);border-style:solid;border-width:2px 2px 2px 2px;border-radius:10px 10px 10px 10px}.mb-s-1o8zzz8{color:rgba(0,0,0,1);font-family:NotoSans;font-size:16px;font-weight:400;font-style:normal;line-height:19px;letter-spacing:0px;text-align:justify;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces}.mb-s-1pkapr2{border-color:rgba(240,240,240,1);border-style:solid;border-width:0px 0px 1px 0px;border-radius:0px 0px 0px 0px}.mb-s-1tbnmnh{color:rgba(153,153,153,1);font-family:NotoSans;font-size:14px;font-weight:400;font-style:normal;line-height:17px;letter-spacing:0px;text-align:justify;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces}.mb-s-5hautg{background:rgba(0,0,0,1);border-radius:3px}.mb-s-1nuo07x{background:rgba(244,244,244,1)}.mb-s-htlxur{--mb-sticky-header-height:54px;--mb-sticky-footer-height:34px;--mb-overview-row-height:874px;overflow-x:hidden;overflow-y:overlay;margin:0 auto}.mb-rs-1jvaos2{line-height:34px}.mb-rs-1cn3uz2{color:rgba(255,255,255,1);font-size:24px;line-height:34px}.mb-rs-18nf16q{line-height:23px}.mb-rs-23aqyo{color:rgba(108,108,108,1);font-size:16px;line-height:23px}.mb-rs-1jubbvj{line-height:28px}.mb-rs-183hdfn{color:rgba(0,0,0,1);font-size:20px;line-height:28px}.mb-rs-1me66di{color:rgba(7,193,96,1);font-size:16px;line-height:23px}.mb-rs-da01c7{line-height:20px}.mb-rs-t1gce0{color:rgba(154,154,154,1);font-size:14px;line-height:20px}.mb-rs-wxs336{color:rgba(0,0,0,1);font-weight:700}.mb-rs-qhoy2e{color:rgba(79,79,79,1);font-weight:700}.mb-rs-29axk8{font-size:14px;line-height:20px}.mb-rs-5oxgyh{line-height:39px}.mb-rs-lqe5mz{font-size:28px;line-height:39px}
+.mb-document {
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px
+}
+
+.mb-document main.mb-page {
+  display: flex !important;
+  width: 100% !important;
+  height: var(--mb-overview-row-height) !important;
+  margin: 0 !important;
+  overflow: auto hidden !important;
+  gap: 40px;
+}
+
+.mb-document .mb-route-canvas {
+  display: block !important;
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  background: transparent !important;
+  flex-shrink: 0;
+}
+
+.mb-document .mb-route-canvas .mb-canvas-viewport,
+.mb-document .mb-route-canvas .mb-container-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+</style><svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs><symbol id="mb-svg-ro2kfx" viewBox="0 0 48 48"><g><rect width="48" height="48" fill="white" fill-opacity="0.01"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M24 3V6.15V3Z" fill="#333"></path><path d="M24 3V6.15" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M38.8492 9.15076L36.6219 11.3781L38.8492 9.15076Z" fill="#333"></path><path d="M38.8492 9.15076L36.6219 11.3781" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M45 24H41.85H45Z" fill="#333"></path><path d="M45 24H41.85" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M38.8492 38.8492L36.6219 36.6219L38.8492 38.8492Z" fill="#333"></path><path d="M38.8492 38.8492L36.6219 36.6219" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M24 45V41.85V45Z" fill="#333"></path><path d="M24 45V41.85" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M9.15076 38.8492L11.3781 36.6219L9.15076 38.8492Z" fill="#333"></path><path d="M9.15076 38.8492L11.3781 36.6219" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 24H6.15H3Z" fill="#333"></path><path d="M3 24H6.15" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M9.15076 9.15076L11.3781 11.3781L9.15076 9.15076Z" fill="#333"></path><path d="M9.15076 9.15076L11.3781 11.3781" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M24 36C30.6274 36 36 30.6274 36 24C36 17.3726 30.6274 12 24 12C17.3726 12 12 17.3726 12 24C12 30.6274 17.3726 36 24 36Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"></path></g></symbol><symbol id="mb-svg-1i01wrm" viewBox="0 0 24 24"><g><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></g></symbol><symbol id="mb-svg-1ip41op" viewBox="0 0 17 12"><path d="M1.25 6.5h1a1 1 0 0 1 1 1V10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V7.5a1 1 0 0 1 1-1zM5.75 5h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm4.5-2h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm4.5-2h1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" fill="currentColor"/></symbol><symbol id="mb-svg-1elfqns" viewBox="0 0 16 12"><path d="M8.007 2.787a8.64 8.64 0 0 1 5.953 2.379c.12.118.314.116.433-.004l1.156-1.166a.322.322 0 0 0-.003-.456 10.897 10.897 0 0 0-15.08 0 .322.322 0 0 0-.003.456L1.62 5.162c.119.12.312.122.433.004a8.641 8.641 0 0 1 5.954-2.379zm0 3.796c1.217 0 2.391.452 3.294 1.27a.31.31 0 0 0 .433-.006l1.155-1.167a.322.322 0 0 0-.005-.459 7.16 7.16 0 0 0-9.752 0 .322.322 0 0 0-.005.46l1.155 1.166a.31.31 0 0 0 .433.006 4.907 4.907 0 0 1 3.292-1.27zm2.219 2.784a.314.314 0 0 0-.01-.457 3.422 3.422 0 0 0-4.42 0 .314.314 0 0 0-.009.457l1.998 2.016a.312.312 0 0 0 .443 0l1.998-2.016z" fill="currentColor"/></symbol><symbol id="mb-svg-4jhxxd" viewBox="0 0 25 12"><path d="M2.667 1.333C1.747 1.333 1 2.08 1 3v6c0 .92.746 1.667 1.667 1.667h16.666C20.253 10.667 21 9.92 21 9V3c0-.92-.746-1.667-1.667-1.667H2.667zm0-1h16.666A2.667 2.667 0 0 1 22 3v6a2.667 2.667 0 0 1-2.667 2.667H2.667A2.667 2.667 0 0 1 0 9V3A2.667 2.667 0 0 1 2.667.333z" fill="currentColor" opacity=".35"/><path d="M23 4v4a2.17 2.17 0 0 0 0-4" fill="currentColor" opacity=".4"/><rect fill="currentColor" x="2" y="2.333" width="18" height="7.333" rx="1.333"/></symbol><symbol id="mb-svg-1cfdrz1" viewBox="64 64 896 896"><g><path d="M839.2 278.1a32 32 0 0 0-30.4-22.1H736V144c0-17.7-14.3-32-32-32H320c-17.7 0-32 14.3-32 32v112h-72.8a31.9 31.9 0 0 0-30.4 22.1L112 502v378c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V502l-72.8-223.9zM660 628c0 4.4-3.6 8-8 8H544v108c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V636H372c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h108V464c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v108h108c4.4 0 8 3.6 8 8v48zm4-372H360v-72h304v72z"></path></g></symbol><symbol id="mb-svg-qxqlub" viewBox="0 0 448 512"><g><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></g></symbol><symbol id="mb-svg-1c5pf5y" viewBox="0 0 448 512"><g><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"></path></g></symbol><symbol id="mb-svg-1uoa4qh" viewBox="0 0 48 48"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M15 11.3684V4H24H33V11.3684L39 17.4868V19.5263V27.6842V42C39 43.1046 38.1046 44 37 44H11C9.89543 44 9 43.1046 9 42V27.6842V19.5263V17.4868L15 11.3684Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"></path><path d="M9 23H17V35H9" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 11.5H33" stroke="#333" stroke-width="4" stroke-linecap="round"></path><path d="M31 23V29" stroke="#333" stroke-width="4" stroke-linecap="round"></path><path d="M31 34V35" stroke="#333" stroke-width="4" stroke-linecap="round"></path><path d="M9 38V20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></g></symbol><symbol id="mb-svg-17waa1q" viewBox="0 0 48 48"><g><path d="M39.6 17.4436L24.0437 33C24.0437 33 13.1817 22.138 8.48731 17.4436" stroke="#4E5969" stroke-width="4"></path></g></symbol></defs></svg><div class="mb-document" data-mb-overview="true"><main id="mb-1j5p5gg" class="mb-page" data-mb-cid="VQBZa9fnBN2Y6S" data-mb-type="rResBunch" style="width:1024px;height:768px;--mb-sticky-header-height:0px;--mb-sticky-footer-height:0px;--mb-overview-row-height:874px;overflow-x:hidden;overflow-y:overlay;margin:0 auto"><div data-mb-cid="rcVQBZqHpWt2yyYh" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:2" data-mb-route="#%E9%A1%B5%E9%9D%A2%201"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="wwVQHQf3HDqPoWzw" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:222.5px;top:393.5px;width:0px;height:0px;z-index:11"><div data-mb-cid="wwVQHMmWslPvsZA2" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:1"><div data-mb-cid="TtTTvIjJVQHLF3BxxTRc6E" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-vh6qvk" style="position:absolute;left:-205.5px;top:-205.5px;width:365px;height:430px;z-index:1"></div><div class="mb-tree-node mb-wRect mb-rich-text mb-h-center mb-s-wd6fxo" style="position:absolute;left:-185px;top:67px;width:324px;height:69px;z-index:2" data-mb-cid="VQHLPmovTfJSYM" data-mb-type="wRect"><p class="mb-rs-1jvaos2"><span class="mb-rs-1cn3uz2">已吃药</span></p></div></div><div data-mb-cid="VQHOh2UIVBRvbq" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-74.5px;top:-184.5px;width:19px;height:20px;z-index:5"><span class="mb-icon mb-svg-icon-wrap mb-s-17wdgvu" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="19" height="20" aria-hidden="true"><use href="#mb-svg-ro2kfx"></use></svg></span></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1p76hxk" style="position:absolute;left:-53px;top:-184.5px;width:80px;height:22px;z-index:6" data-mb-cid="TtTTv1aKVQHOqEX95iCwnF" data-mb-type="wRichText"><p class="mb-rs-18nf16q"><span class="mb-rs-23aqyo">杭州·晴34℃</span></p></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-o6dzs1" style="position:absolute;left:-181.5px;top:-108.5px;width:321px;height:100px;z-index:7" data-mb-cid="VQHN8jWw2PRdp" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">王叔叔，早上好！八点啦，降压药该吃了。记得饭后吃。今天天热，早饭可别吃西柚哦。</span></p></div><div data-mb-cid="wwVQHQmtVn1jbsqX" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-59.5px;width:0px;height:0px;z-index:2"><div data-mb-cid="VQHMthgI4GmnE2" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-10jnm7g" style="position:absolute;left:-205.5px;top:-74px;width:365px;height:172px;z-index:1"></div></div><div data-mb-cid="wwVSSll0ASjY9zpE" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-25px;top:8px;width:0px;height:0px;z-index:4"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1x31uot" style="position:absolute;left:-15.5px;top:-9.5px;width:56px;height:18px;z-index:1" data-mb-cid="VQHO5DnpNPxb9d" data-mb-type="wRichText"><p class="mb-rs-18nf16q"><span class="mb-rs-1me66di">听一遍</span></p></div><div data-mb-cid="VQHO0KUFDwAFkV" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-40.5px;top:-11.5px;width:21px;height:23px;z-index:2"><span class="mb-icon mb-svg-icon-wrap mb-s-rpjkwe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 24 24" width="21" height="23" aria-hidden="true"><use href="#mb-svg-1i01wrm"></use></svg></span></div></div></div><div data-mb-cid="wwVQHMrhSfrIqGEN" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:224.5px;top:566px;width:0px;height:0px;z-index:12"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1hwz9vo" style="position:absolute;left:-63.5px;top:-10px;width:127px;height:20px;z-index:1" data-mb-cid="VQHMQRUvFXHoho" data-mb-type="wRichText"><p class="mb-rs-da01c7"><span class="mb-rs-t1gce0">稍后提醒（10分钟）</span></p></div></div><div data-mb-cid="wwVQHQsldgqr4mNy" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:203px;top:729.5px;width:0px;height:0px;z-index:10"><div data-mb-cid="VQBZa9t9VQBc04RXMwxcD9" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-992px;top:-1023px;width:0px;height:0px;z-index:1"><div data-mb-cid="VQBZa9tNVQBc04RpbBZWUy" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-buvafd" style="position:absolute;left:937px;top:993.5px;width:110px;height:59px;z-index:1"></div></div><div class="mb-tree-node mb-wOval mb-rich-text mb-h-center mb-s-jlshve" style="position:absolute;left:2px;top:-22.5px;width:40px;height:40px;z-index:2" data-mb-cid="VQBcAdPfy6Oq8T" data-mb-type="wOval"><p class="mb-rs-da01c7"><span class="mb-rs-wxs336">2</span></p></div><div class="mb-tree-node mb-wOval mb-rich-text mb-h-center mb-s-1iz93xu" style="position:absolute;left:-46px;top:-22.5px;width:40px;height:40px;z-index:3" data-mb-cid="VQBcAdPfVQHKvWRTNUKiJA" data-mb-type="wOval"><p class="mb-rs-da01c7"><span class="mb-rs-qhoy2e">1</span></p></div></div><div data-mb-cid="VQBZa9qYVQBbce3u7LNKVG" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-782.5px;top:-143.5px;width:0px;height:0px;z-index:1"><div data-mb-cid="VQBZa9rZVQBbce3BdOpgWG" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-i3qrzh" style="position:absolute;left:782.5px;top:143.5px;width:402px;height:874px;z-index:1"></div></div><div data-mb-cid="VSRjcC6hVSSj3lQmeheTwd" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:63px;z-index:13"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div></div></div></div><div data-mb-cid="rcVQBZqHVSSlBGHbLDeIdD" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:3" data-mb-route="#%E9%A1%B5%E9%9D%A2%202"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="VSRjcC6hVSSlBGHsaYLfDU" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:63px;z-index:13"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div><div data-mb-cid="wwVQHMrhVSSlBGHIgYsBHd" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:213.5px;top:560px;width:0px;height:0px;z-index:12"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1hwz9vo" style="position:absolute;left:-63.5px;top:-10px;width:127px;height:20px;z-index:1" data-mb-cid="VQHMQRUvVSSlBGHG78faDG" data-mb-type="wRichText"><p class="mb-rs-da01c7"><span class="mb-rs-t1gce0">稍后提醒（10分钟）</span></p></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left" style="position:absolute;left:785.5px;top:275px;width:120px;height:28px;z-index:2;color:#101010;font-family:PingFangSC;font-size:20px;font-weight:400;font-style:normal;line-height:28px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:visible;align-items:flex-start;justify-content:flex-start;white-space:pre" data-mb-cid="VSSva3y9ZCexSK" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">双击编辑文本</span></p></div></div><div data-mb-cid="wwVQHQf3VSSlBGHWJuVL2P" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:224.5px;top:384.5px;width:0px;height:0px;z-index:11"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-o6dzs1" style="position:absolute;left:-181.5px;top:-108.5px;width:321px;height:100px;z-index:7" data-mb-cid="VQHN8jWwVSSlBGH5BnIQVd" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">王叔叔，早上好！八点啦，降压药该吃了。记得饭后吃。今天天热，早饭可别吃西柚哦。</span></p></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1p76hxk" style="position:absolute;left:-53px;top:-184.5px;width:80px;height:22px;z-index:6" data-mb-cid="TtTTv1aKVSSlBGHKfY2UHl" data-mb-type="wRichText"><p class="mb-rs-18nf16q"><span class="mb-rs-23aqyo">杭州·晴34℃</span></p></div><div data-mb-cid="VQHOh2UIVSSlBGHILuCX" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-74.5px;top:-184.5px;width:19px;height:20px;z-index:5"><span class="mb-icon mb-svg-icon-wrap mb-s-17wdgvu" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="19" height="20" aria-hidden="true"><use href="#mb-svg-ro2kfx"></use></svg></span></div><div data-mb-cid="wwVQHQmtVSSlBGH55k74rE" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-59.5px;width:0px;height:0px;z-index:2"><div data-mb-cid="VQHMthgIVSSlBGHPVNBVmM" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-10jnm7g" style="position:absolute;left:-205.5px;top:-74px;width:365px;height:172px;z-index:1"></div></div><div data-mb-cid="wwVQHMmWVSSlBGHCBO8IJC" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:1"><div class="mb-tree-node mb-wRect mb-rich-text mb-h-center" style="position:absolute;left:-185px;top:67px;width:324px;height:69px;z-index:2;background:rgba(154,154,154,1);border-color:rgba(108,108,108,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:22px;color:#101010;font-family:PingFangSC;font-size:24px;font-weight:700;font-style:normal;line-height:34px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center" data-mb-cid="VQHLPmovVSSlBGHElMolhS" data-mb-type="wRect"><p class="mb-rs-1jvaos2"><span class="mb-rs-1cn3uz2">已吃药</span></p></div><div data-mb-cid="TtTTvIjJVSSlBGHbxRdoiX" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-vh6qvk" style="position:absolute;left:-205.5px;top:-205.5px;width:365px;height:430px;z-index:1"></div></div></div><div data-mb-cid="wwVQHQslVSSlBGH7yukYdp" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:203px;top:729.5px;width:0px;height:0px;z-index:10"><div class="mb-tree-node mb-wOval mb-rich-text mb-h-center mb-s-1iz93xu" style="position:absolute;left:-46px;top:-22.5px;width:40px;height:40px;z-index:3" data-mb-cid="VQBcAdPfVSSlBGHQBwKeMX" data-mb-type="wOval"><p class="mb-rs-da01c7"><span class="mb-rs-qhoy2e">1</span></p></div><div class="mb-tree-node mb-wOval mb-rich-text mb-h-center mb-s-jlshve" style="position:absolute;left:2px;top:-22.5px;width:40px;height:40px;z-index:2" data-mb-cid="VQBcAdPfVSSlBGHPs5ukty" data-mb-type="wOval"><p class="mb-rs-da01c7"><span class="mb-rs-wxs336">2</span></p></div><div data-mb-cid="VQBZa9t9VSSlBGHn0h72AG" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-992px;top:-1023px;width:0px;height:0px;z-index:1"><div data-mb-cid="VQBZa9tNVSSlBGH8fRjNWm" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-buvafd" style="position:absolute;left:937px;top:993.5px;width:110px;height:59px;z-index:1"></div></div></div><div data-mb-cid="VQBZa9qYVSSlBGH62X0KUf" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-782.5px;top:-143.5px;width:0px;height:0px;z-index:1"><div data-mb-cid="VQBZa9rZVSSlBGHTgllWBh" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-i3qrzh" style="position:absolute;left:782.5px;top:143.5px;width:402px;height:874px;z-index:1"></div></div><div data-mb-cid="wwVSSll0VSSlmSu4yo20kH" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:200.5px;top:403.5px;width:0px;height:0px;z-index:14"><div data-mb-cid="VQHO0KUFVSSlmSuzNNqq5R" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-40.5px;top:-11.5px;width:21px;height:23px;z-index:2"><span class="mb-icon mb-svg-icon-wrap mb-s-rpjkwe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 24 24" width="21" height="23" aria-hidden="true"><use href="#mb-svg-1i01wrm"></use></svg></span></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1x31uot" style="position:absolute;left:-15.5px;top:-9.5px;width:56px;height:18px;z-index:1" data-mb-cid="VQHO5DnpVSSlmSukGS8bhu" data-mb-type="wRichText"><p class="mb-rs-18nf16q"><span class="mb-rs-1me66di">听一遍</span></p></div></div></div></div></div><div data-mb-cid="rcVQBZqHVSSlBe8PnLBUVt" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:4" data-mb-route="#%E9%A1%B5%E9%9D%A2%203"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="VSRjcC6hVSSlBe87ql4VNQ" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:63px;z-index:13"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div><div data-mb-cid="wwVQHMrhVSSlBe83SDh64M" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:224.5px;top:566px;width:0px;height:0px;z-index:12"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1hwz9vo" style="position:absolute;left:-63.5px;top:-10px;width:127px;height:20px;z-index:1" data-mb-cid="VQHMQRUvVSSlBe8bDXI3It" data-mb-type="wRichText"><p class="mb-rs-da01c7"><span class="mb-rs-t1gce0">稍后提醒（10分钟）</span></p></div></div><div data-mb-cid="wwVQHQf3VSSlBe8R4WyA8v" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:222.5px;top:393.5px;width:0px;height:0px;z-index:11"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1p76hxk" style="position:absolute;left:-53px;top:-184.5px;width:80px;height:22px;z-index:6" data-mb-cid="TtTTv1aKVSSlBe8VbYjQlq" data-mb-type="wRichText"><p class="mb-rs-18nf16q"><span class="mb-rs-23aqyo">杭州·晴34℃</span></p></div><div data-mb-cid="VQHOh2UIVSSlBe8fffdTZ" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-74.5px;top:-184.5px;width:19px;height:20px;z-index:5"><span class="mb-icon mb-svg-icon-wrap mb-s-17wdgvu" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="19" height="20" aria-hidden="true"><use href="#mb-svg-ro2kfx"></use></svg></span></div><div data-mb-cid="wwVQHQmtVSSlBe8RseZraY" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-59.5px;width:0px;height:0px;z-index:2"><div data-mb-cid="VQHMthgIVSSlBe8ggHVqZ1" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-10jnm7g" style="position:absolute;left:-205.5px;top:-74px;width:365px;height:172px;z-index:1"></div></div><div data-mb-cid="wwVQHMmWVSSlBe8bq4bPty" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:1"><div class="mb-tree-node mb-wRect mb-rich-text mb-h-center mb-s-wd6fxo" style="position:absolute;left:-184.5px;top:67.5px;width:151px;height:63px;z-index:2" data-mb-cid="VQHLPmovVSSlBe8zx3zL5L" data-mb-type="wRect"><p class="mb-rs-1jvaos2"><span class="mb-rs-1cn3uz2">已吃药</span></p></div><div data-mb-cid="TtTTvIjJVSSlBe8SaxBuZZ" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-vh6qvk" style="position:absolute;left:-205.5px;top:-205.5px;width:365px;height:430px;z-index:1"></div><div data-mb-cid="VVOQ6BpzxBq7ou" data-mb-type="wRichText" class="mb-tree-node mb-wRichText" style="position:absolute;left:-280px;top:23.5px;width:10px;height:39px;z-index:3"></div><div class="mb-tree-node mb-wRect mb-rich-text mb-h-center" style="position:absolute;left:-12.5px;top:67.5px;width:151px;height:63px;z-index:4;background:rgba(7,193,96,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:22px;color:rgba(255,255,255,1);font-family:PingFangSC;font-size:24px;font-weight:700;font-style:normal;line-height:34px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center" data-mb-cid="VQHLPmovVVOQ8OJufvDiuV" data-mb-type="wRect"><p class="mb-rs-1jvaos2"><span class="mb-rs-1cn3uz2">漏服药</span></p></div></div></div><div data-mb-cid="wwVQHQslVSSlBe8kXdRUJJ" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:203px;top:729.5px;width:0px;height:0px;z-index:10"><div class="mb-tree-node mb-wOval mb-rich-text mb-h-center" style="position:absolute;left:7px;top:-20.5px;width:40px;height:40px;z-index:3;background:rgba(7,193,96,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:100%;color:rgba(79,79,79,1);font-family:PingFangSC;font-size:14px;font-weight:700;font-style:normal;line-height:20px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center" data-mb-cid="VQBcAdPfVSSlBe8IZ9JyLI" data-mb-type="wOval"><p class="mb-rs-da01c7"><span class="mb-rs-qhoy2e">2</span></p></div><div class="mb-tree-node mb-wOval mb-rich-text mb-h-center" style="position:absolute;left:-40px;top:-20.5px;width:40px;height:40px;z-index:2;background:rgba(206,206,206,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:100%;color:rgba(0,0,0,1);font-family:PingFangSC;font-size:14px;font-weight:700;font-style:normal;line-height:20px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center" data-mb-cid="VQBcAdPfVSSlBe8U7Wynw3" data-mb-type="wOval"><p class="mb-rs-da01c7"><span class="mb-rs-wxs336">1</span></p></div><div data-mb-cid="VQBZa9t9VSSlBe893knVG8" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-992px;top:-1023px;width:0px;height:0px;z-index:1"><div data-mb-cid="VQBZa9tNVSSlBe8pcof6iO" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-buvafd" style="position:absolute;left:937px;top:993.5px;width:110px;height:59px;z-index:1"></div></div></div><div data-mb-cid="VQBZa9qYVSSlBe8kvDHAjD" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-782.5px;top:-143.5px;width:0px;height:0px;z-index:1"><div data-mb-cid="VQBZa9rZVSSlBe8FtwindL" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-i3qrzh" style="position:absolute;left:782.5px;top:143.5px;width:402px;height:874px;z-index:1"></div></div><div data-mb-cid="wwVSSll0VSSloQZSw3Ikuq" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:208.5px;top:403.5px;width:0px;height:0px;z-index:14"><div data-mb-cid="VQHO0KUFVSSloQZqUsSZM7" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-40.5px;top:-11.5px;width:21px;height:23px;z-index:2"><span class="mb-icon mb-svg-icon-wrap mb-s-rpjkwe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 24 24" width="21" height="23" aria-hidden="true"><use href="#mb-svg-1i01wrm"></use></svg></span></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1x31uot" style="position:absolute;left:-15.5px;top:-9.5px;width:56px;height:18px;z-index:1" data-mb-cid="VQHO5DnpVSSloQZB9ElxHV" data-mb-type="wRichText"><p class="mb-rs-18nf16q"><span class="mb-rs-1me66di">听一遍</span></p></div></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1nff1zv" style="position:absolute;left:43px;top:292px;width:335px;height:100px;z-index:15" data-mb-cid="VSSmf2Uao1K1gN" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">王叔叔，中午的药还没确认哦，记得吃二甲双胍。如有不舒服要及时给小王打电话。</span></p></div></div></div></div><div data-mb-cid="rcVQBZqHVSSnuufLE5nc4q" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:5" data-mb-route="#%E9%A1%B5%E9%9D%A2%204"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1ptxr3e" style="position:absolute;left:70px;top:656px;width:56px;height:20px;z-index:36" data-mb-cid="VVOAomVhVVOQRW3dXSJ6Tf" data-mb-type="wRichText"><p class="mb-rs-da01c7"><span class="mb-rs-29axk8">打卡记录</span></p></div><div data-mb-cid="VVOAj4f9VVOQNdWBhYEnDL" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-mk95jx" style="position:absolute;left:6px;top:603px;width:391px;height:106px;z-index:35"></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1ptxr3e" style="position:absolute;left:70px;top:518px;width:56px;height:20px;z-index:34" data-mb-cid="VVOAomVhio5Grb" data-mb-type="wRichText"><p class="mb-rs-da01c7"><span class="mb-rs-29axk8">打卡记录</span></p></div><div data-mb-cid="VVOAj4f9k6p2bB" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-mk95jx" style="position:absolute;left:5px;top:481px;width:391px;height:106px;z-index:33"></div><div data-mb-cid="wwVST0JJ4R4hlzAZ" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:201px;top:843.5px;width:0px;height:0px;z-index:32"><div data-mb-cid="wwVSSxKV5PXTs95q" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:42px;top:-1px;width:0px;height:0px;z-index:4"><div data-mb-cid="wwVSSxFaOvwkaDna" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:4px;top:16.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVSSvxv1Oqo6c6h" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药方案</span></p></div></div><div data-mb-cid="VSSoxirHy12Th2" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-10px;top:-30.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jluupe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="64 64 896 896" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1cfdrz1"></use></svg></span></div></div><div data-mb-cid="wwVST0Fyh8QZLV3A" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:155px;top:-1px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1nff1zv" style="position:absolute;left:-40px;top:0.5px;width:80px;height:29px;z-index:2" data-mb-cid="VSSvjewoVSSvw3BQn8eYBY" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">我的</span></p></div><div data-mb-cid="VSSpRwKNGir2FE" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-34px;top:-29.5px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-2b5x5u" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="30" height="30" aria-hidden="true"><use href="#mb-svg-qxqlub"></use></svg></span></div></div><div data-mb-cid="wwVSSxRKiAVlCdGB" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-56px;top:-3px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVSSxMzvde1ke36" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:18.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVSSvvwvWuIrph4" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药记录</span></p></div></div><div data-mb-cid="wwVSSxP9k5ozHHFk" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0.5px;top:-14px;width:0px;height:0px;z-index:1"><div data-mb-cid="VSSpAXQHVSSppgBPVTcAn9" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-14.5px;top:-14.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jluupe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1c5pf5y"></use></svg></span></div></div></div><div data-mb-cid="wwVST0BTlTnYgEgY" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-155px;top:-0.5px;width:0px;height:0px;z-index:1"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:3px;width:80px;height:28px;z-index:2" data-mb-cid="VSSvjewopBJRJq" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">吃药打卡</span></p></div><div data-mb-cid="VSSoylXHVUN5E6" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-15px;top:-31px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jonfu6" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true"><use href="#mb-svg-1uoa4qh"></use></svg></span></div></div></div><div data-mb-cid="VSSplg0y9Wgb8n" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-fw4bh6" style="position:absolute;left:0px;top:799px;width:402px;height:75px;z-index:31"></div><div data-mb-cid="VSSplg0yVSSzzd3UcuZAgM" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:0px;top:874px;width:402px;height:75px;z-index:28;background:rgba(255,255,255,1);border-color:rgba(187,187,187,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:0px"></div><div data-mb-cid="igkxh61sVSSzXyoQqBbz3r" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:195.69px;top:281.41px;width:0px;height:0px;z-index:27"><div class="mb-tree-node mb-wOval mb-rich-text mb-h-center" style="position:absolute;left:-24.19px;top:-5.91px;width:51px;height:43px;z-index:6;background:rgba(255,255,255,1);border-color:rgba(0,82,217,1);border-style:solid;border-width:1px 1px 1px 1px;border-radius:100%;color:rgba(0, 82, 217, 1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center" data-mb-cid="ikxh61s3VSSzXyoYH8g5zA" data-mb-type="wOval">13</div><div data-mb-cid="igkxh61sVSSzXyoCeOYrs2" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:5"><div data-mb-cid="igkxh61sVSSzXyoinstOL" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-154px;width:0px;height:0px;z-index:9"><div class="mb-tree-node mb-wRect mb-rich-text mb-h-center" style="position:absolute;left:120.81px;top:-42.91px;width:59px;height:29px;z-index:11;border-radius:3px;color:rgba(16, 16, 16, 1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center" data-mb-cid="ikxh61s3VSSzXyoCmDApDa" data-mb-type="wRect">年</div><div class="mb-tree-node mb-wRect mb-rich-text mb-h-center" style="position:absolute;left:58.81px;top:-42.91px;width:59px;height:29px;z-index:10;background:rgba(255,255,255,1);border-radius:3px;color:rgba(0, 82, 217, 1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:center" data-mb-cid="ikxh61s3VSSzXyoFEZeRXx" data-mb-type="wRect">月</div><div data-mb-cid="ikxh61s3VSSzXyoNwSQglI" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:56.81px;top:-45.91px;width:125px;height:35px;z-index:9;background:rgba(231,231,231,1);border-radius:3px"></div><div data-mb-cid="ikxh61s3VSSzXyoGRKm2lI" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:17.31px;top:-37.91px;width:20px;height:19px;z-index:8"><span class="mb-icon mb-svg-icon-wrap mb-s-obry6y" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="20" height="19" aria-hidden="true"><use href="#mb-svg-17waa1q"></use></svg></span></div><div class="mb-tree-node mb-wRect mb-rich-text mb-h-left mb-s-1ft35ez" style="position:absolute;left:-41.19px;top:-45.91px;width:87px;height:35px;z-index:7" data-mb-cid="ikxh61s3VSSzXyoNzU98IP" data-mb-type="wRect">   8月</div><div data-mb-cid="ikxh61s3VSSzXyoMOKlRFY" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-81.69px;top:-37.91px;width:20px;height:19px;z-index:6"><span class="mb-icon mb-svg-icon-wrap mb-s-obry6y" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="20" height="19" aria-hidden="true"><use href="#mb-svg-17waa1q"></use></svg></span></div><div class="mb-tree-node mb-wRect mb-rich-text mb-h-left mb-s-1ft35ez" style="position:absolute;left:-173.19px;top:-45.91px;width:121px;height:35px;z-index:5" data-mb-cid="ikxh61s3VSSzXyowUbHoTj" data-mb-type="wRect">   2025 年</div></div><div data-mb-cid="ikxh61s3VSSzXyo4HkkCv6" data-mb-type="wOval" class="mb-tree-node mb-wOval" style="position:absolute;left:-54.69px;top:-13.41px;width:8px;height:6px;z-index:8;background:rgba(0,82,217,0.902);border-radius:100%"></div><div data-mb-cid="ikxh61s3VSSzXyoBLF5ciL" data-mb-type="wLine" class="mb-tree-node mb-wLine" style="position:absolute;left:-195.69px;top:-147.91px;width:402px;height:1px;z-index:7;pointer-events:none"><div class="mb-geometry-container"><svg class="mb-vector" viewBox="0 0 402 1" preserveAspectRatio="none" style="filter:none" aria-hidden="true"><g><defs></defs><path d="M 0 0.5 L 402 0.5" fill="none" stroke="rgba(231,231,231,1)" stroke-width="1" stroke-dasharray="" /></g></svg></div></div><div data-mb-cid="ikxh61s3VSSzXyolQ8W8pC" data-mb-type="wTable" class="mb-tree-node mb-wTable" style="position:absolute;left:-176.69px;top:-130.91px;width:366px;height:305px;z-index:6;border-radius:4px;font-size:14px"><table class="mb-table-widget" aria-label="表格 Copy 3 dwdFwOS" style="border:none"><colgroup><col style="width:50.32px"><col style="width:50.32px"><col style="width:50.32px"><col style="width:51.56px"><col style="width:51.56px"><col style="width:51.56px"><col style="width:60.37px"></colgroup><tbody><tr style="height:42.21px"><td data-x="0" data-y="0" data-xy="0-0" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-myo81q" style="height:42.21px">一</div></td><td data-x="1" data-y="0" data-xy="1-0" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text" style="height:42.21px;align-items:center;justify-content:center;font-size:14px;color:rgba(151, 151, 151, 0.9);font-weight:bold;font-style:normal;text-decoration:none;line-height:20px;white-space:pre-wrap;background:#fff;padding:4px">二</div></td><td data-x="2" data-y="0" data-xy="2-0" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-myo81q" style="height:42.21px">三</div></td><td data-x="3" data-y="0" data-xy="3-0" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-myo81q" style="height:42.21px">四</div></td><td data-x="4" data-y="0" data-xy="4-0" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-myo81q" style="height:42.21px">五</div></td><td data-x="5" data-y="0" data-xy="5-0" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-myo81q" style="height:42.21px">六</div></td><td data-x="6" data-y="0" data-xy="6-0" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-myo81q" style="height:42.21px">七</div></td></tr><tr style="height:42.21px"><td data-x="0" data-y="1" data-xy="0-1" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:42.21px">27</div></td><td data-x="1" data-y="1" data-xy="1-1" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:42.21px">28</div></td><td data-x="2" data-y="1" data-xy="2-1" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:42.21px">29</div></td><td data-x="3" data-y="1" data-xy="3-1" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:42.21px">30</div></td><td data-x="4" data-y="1" data-xy="4-1" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:42.21px">31</div></td><td data-x="5" data-y="1" data-xy="5-1" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">1</div></td><td data-x="6" data-y="1" data-xy="6-1" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">2</div></td></tr><tr style="height:42.21px"><td data-x="0" data-y="2" data-xy="0-2" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:42.21px">3</div></td><td data-x="1" data-y="2" data-xy="1-2" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:42.21px">4</div></td><td data-x="2" data-y="2" data-xy="2-2" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text" style="height:42.21px;align-items:center;justify-content:center;font-size:14px;color:rgba(0, 82, 217, 0.9);font-weight:bold;font-style:normal;text-decoration:none;line-height:20px;white-space:pre-wrap;background:#fff;padding:4px">5</div></td><td data-x="3" data-y="2" data-xy="3-2" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:42.21px">6</div></td><td data-x="4" data-y="2" data-xy="4-2" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">7</div></td><td data-x="5" data-y="2" data-xy="5-2" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">8</div></td><td data-x="6" data-y="2" data-xy="6-2" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">9</div></td></tr><tr style="height:42.21px"><td data-x="0" data-y="3" data-xy="0-3" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:42.21px">10</div></td><td data-x="1" data-y="3" data-xy="1-3" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:42.21px">11</div></td><td data-x="2" data-y="3" data-xy="2-3" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:42.21px">12</div></td><td data-x="3" data-y="3" data-xy="3-3" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:42.21px">13</div></td><td data-x="4" data-y="3" data-xy="4-3" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">14</div></td><td data-x="5" data-y="3" data-xy="5-3" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">15</div></td><td data-x="6" data-y="3" data-xy="6-3" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:42.21px">16</div></td></tr><tr style="height:44.31px"><td data-x="0" data-y="4" data-xy="0-4" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:44.31px">17</div></td><td data-x="1" data-y="4" data-xy="1-4" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:44.31px">18</div></td><td data-x="2" data-y="4" data-xy="2-4" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:44.31px">19</div></td><td data-x="3" data-y="4" data-xy="3-4" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-19tiodt" style="height:44.31px">20</div></td><td data-x="4" data-y="4" data-xy="4-4" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">21</div></td><td data-x="5" data-y="4" data-xy="5-4" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">22</div></td><td data-x="6" data-y="4" data-xy="6-4" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">23</div></td></tr><tr style="height:44.31px"><td data-x="0" data-y="5" data-xy="0-5" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">24</div></td><td data-x="1" data-y="5" data-xy="1-5" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">25</div></td><td data-x="2" data-y="5" data-xy="2-5" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">26</div></td><td data-x="3" data-y="5" data-xy="3-5" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">27</div></td><td data-x="4" data-y="5" data-xy="4-5" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">28</div></td><td data-x="5" data-y="5" data-xy="5-5" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">29</div></td><td data-x="6" data-y="5" data-xy="6-5" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:44.31px">30</div></td></tr><tr style="height:47.54px"><td data-x="0" data-y="6" data-xy="0-6" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-1tqubs5" style="height:47.54px">31</div></td><td data-x="1" data-y="6" data-xy="1-6" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:47.54px">1</div></td><td data-x="2" data-y="6" data-xy="2-6" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:47.54px">2</div></td><td data-x="3" data-y="6" data-xy="3-6" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:47.54px">3</div></td><td data-x="4" data-y="6" data-xy="4-6" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:47.54px">4</div></td><td data-x="5" data-y="6" data-xy="5-6" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:47.54px">5</div></td><td data-x="6" data-y="6" data-xy="6-6" style="" class="mb-s-1msyhrq"><div class="mb-tdDiv mb-tdDiv-has-text mb-s-8xvrka" style="height:47.54px">6</div></td></tr></tbody></table></div><div data-mb-cid="ikxh61s3VSSzXyoC8jYYWT" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:-195.69px;top:-218.41px;width:402px;height:406px;z-index:5;background:rgba(255,255,255,1);border-radius:3px;box-shadow:0px 2px 6px 0px rgba(0,0,0,0.18)"></div></div></div><div data-mb-cid="VSRjcC6hVSSnuufANdZDLE" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:63px;z-index:13"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div></div></div></div><div data-mb-cid="rcVSSz4HzprhnxxI" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:395px;height:874px;z-index:10" data-mb-route="#%E9%A1%B5%E9%9D%A2%205"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1q16rsl" style="position:absolute;left:141px;top:190px;width:56px;height:39px;z-index:3" data-mb-cid="VVOSKUr4IqkoJJ" data-mb-type="wRichText"><p class="mb-rs-5oxgyh"><span class="mb-rs-lqe5mz">月报</span></p></div><div data-mb-cid="wwVST0RZVST0Ws0U1uV05Q" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:224px;top:758px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVST0NtVST0Ws06uDzGhY" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-9px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVST0NBVST0Ws07TfYDb8" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-16px;top:94px;width:0px;height:0px;z-index:1"><div data-mb-cid="wwVSSxKVVST0Ws0RVLLpmr" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:42px;top:-0.5px;width:0px;height:0px;z-index:5"><div data-mb-cid="wwVSSxFaVST0Ws0xjuD1fY" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:4px;top:16.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVST0Ws0RoxmMOV" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药方案</span></p></div></div><div data-mb-cid="VSSoxirHVST0Ws0c99HzuH" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-10px;top:-30.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jluupe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="64 64 896 896" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1cfdrz1"></use></svg></span></div></div><div data-mb-cid="wwVST0FyVST0Ws0Tfvs1Kf" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:155px;top:-0.5px;width:0px;height:0px;z-index:4"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1nff1zv" style="position:absolute;left:-40px;top:0.5px;width:80px;height:29px;z-index:2" data-mb-cid="VSSvjewoVST0Ws0MWFiSL7" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">我的</span></p></div><div data-mb-cid="VSSpRwKNVST0Ws0AL6TMuJ" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-34px;top:-29.5px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-2b5x5u" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="30" height="30" aria-hidden="true"><use href="#mb-svg-qxqlub"></use></svg></span></div></div><div data-mb-cid="wwVSSxRKVST0Ws08WBJRtf" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-56px;top:-2.5px;width:0px;height:0px;z-index:3"><div data-mb-cid="wwVSSxMzVST0Ws0OtzgGlf" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:18.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVST0Ws0YpkXDew" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药记录</span></p></div></div><div data-mb-cid="wwVSSxP9VST0Ws0C0Sspve" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0.5px;top:-14px;width:0px;height:0px;z-index:1"><div data-mb-cid="VSSpAXQHVST0Ws0pe0BjIC" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-14.5px;top:-14.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-smtxj2" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1c5pf5y"></use></svg></span></div></div></div><div data-mb-cid="wwVST0BTVST0Ws03bErRvd" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-155px;top:0px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:3px;width:80px;height:28px;z-index:2" data-mb-cid="VSSvjewoVST0Ws06dFWwnF" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">吃药打卡</span></p></div><div data-mb-cid="VSSoylXHVST0Ws0eFdUz94" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-15px;top:-31px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-2b5x5u" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true"><use href="#mb-svg-1uoa4qh"></use></svg></span></div></div></div></div><div data-mb-cid="VSSplg0yVST0Ws03VeSZXJ" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-fw4bh6" style="position:absolute;left:-201px;top:-53px;width:402px;height:75px;z-index:1"></div></div><div data-mb-cid="UquSrzRcVVOVFiWxRs99QH" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1tefipp" style="position:absolute;left:-4px;top:0px;width:402px;height:269px;z-index:1"></div></div></div></div><div data-mb-cid="rcVSSz8pRgKcTXOz" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:11" data-mb-route="#%E9%A1%B5%E9%9D%A2%206"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="wwVST0RZVST1BNs5oEkR21" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:201px;top:740px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVST0NtVST1BNs6YB4Aom" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-9px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVST0JJVST1BNsJrnNZNM" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-6px;top:112.5px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVSSxKVVST1BNs2zPAVj3" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:42px;top:-1px;width:0px;height:0px;z-index:4"><div data-mb-cid="wwVSSxFaVST1BNs8fZX95h" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:4px;top:16.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVST1BNsp9N1R2T" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药方案</span></p></div></div><div data-mb-cid="VSSoxirHVST1BNs4C4ucEv" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-10px;top:-30.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-smtxj2" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="64 64 896 896" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1cfdrz1"></use></svg></span></div></div><div data-mb-cid="wwVST0FyVST1BNszcgn4by" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:155px;top:-1px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1nff1zv" style="position:absolute;left:-40px;top:0.5px;width:80px;height:29px;z-index:2" data-mb-cid="VSSvjewoVST1BNsa9FfJr0" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">我的</span></p></div><div data-mb-cid="VSSpRwKNVST1BNslQYXvui" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-34px;top:-29.5px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-2b5x5u" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="30" height="30" aria-hidden="true"><use href="#mb-svg-qxqlub"></use></svg></span></div></div><div data-mb-cid="wwVSSxRKVST1BNsLd42yTA" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-56px;top:-3px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVSSxMzVST1BNsALhdMC5" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:18.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVST1BNszU4orSf" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药记录</span></p></div></div><div data-mb-cid="wwVSSxP9VST1BNsRMyafeX" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0.5px;top:-14px;width:0px;height:0px;z-index:1"><div data-mb-cid="VSSpAXQHVST1BNsO4BpUoY" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-14.5px;top:-14.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jluupe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1c5pf5y"></use></svg></span></div></div></div><div data-mb-cid="wwVST0BTVST1BNscdcVPGE" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-155px;top:-0.5px;width:0px;height:0px;z-index:1"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:3px;width:80px;height:28px;z-index:2" data-mb-cid="VSSvjewoVST1BNsA6PK0OI" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">吃药打卡</span></p></div><div data-mb-cid="VSSoylXHVST1BNskQRIEZE" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-15px;top:-31px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-2b5x5u" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true"><use href="#mb-svg-1uoa4qh"></use></svg></span></div></div></div></div><div data-mb-cid="VSSplg0yVST1BNsRBPtbAb" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-fw4bh6" style="position:absolute;left:-201px;top:-53px;width:402px;height:75px;z-index:1"></div></div><div data-mb-cid="UquSrzRcVVOV9I1gEUgbhX" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1tefipp" style="position:absolute;left:0px;top:0px;width:402px;height:269px;z-index:1"></div></div></div></div><div data-mb-cid="rcVSSz8wh65bqZYe" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:12" data-mb-route="#%E9%A1%B5%E9%9D%A2%207"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="VVOTO42Ou98c42" data-mb-type="wElbow" class="mb-tree-node mb-wElbow" style="position:absolute;left:396px;top:99px;width:0px;height:0px;z-index:12;color:rgba(16,16,16,1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-decoration:none;align-items:center;justify-content:center;pointer-events:none"><svg class="mb-elbow-svg" viewBox="0 0 1 1"><path d="M0 0 L0 0 L0 0 L0 0" fill="none" stroke="rgba(153,153,153,1)" stroke-width="2"/></svg><div class="mb-rich-text mb-elbow-text"><p class="mb-rs-da01c7"></p></div></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1q16rsl" style="position:absolute;left:67px;top:517px;width:168px;height:39px;z-index:11" data-mb-cid="VVOSdwKflpNfDF" data-mb-type="wRichText"><p class="mb-rs-5oxgyh"><span class="mb-rs-lqe5mz">新增关联用户</span></p></div><div data-mb-cid="VVOSR8KyVVOScdjfbeGAXQ" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-448ep8" style="position:absolute;left:2px;top:481px;width:307px;height:110px;z-index:10"></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1q16rsl" style="position:absolute;left:43px;top:363px;width:112px;height:39px;z-index:9" data-mb-cid="VVOSXlpuAB0New" data-mb-type="wRichText"><p class="mb-rs-5oxgyh"><span class="mb-rs-lqe5mz">关联用户</span></p></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1q16rsl" style="position:absolute;left:75px;top:242px;width:112px;height:39px;z-index:8" data-mb-cid="VVOSUlaTmcmQXD" data-mb-type="wRichText"><p class="mb-rs-5oxgyh"><span class="mb-rs-lqe5mz">关联用户</span></p></div><div data-mb-cid="VVOSR8KyVVOSTYJl8LnbKN" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-448ep8" style="position:absolute;left:30px;top:347px;width:307px;height:110px;z-index:7"></div><div data-mb-cid="VVOSR8Kybl494j" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-448ep8" style="position:absolute;left:15px;top:206px;width:307px;height:110px;z-index:6"></div><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left" style="position:absolute;left:157px;top:65px;width:195px;height:75px;z-index:5;color:#101010;font-family:PingFangSC;font-size:28px;font-weight:400;font-style:normal;line-height:39px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces" data-mb-cid="VVOCeaiPJBB94r" data-mb-type="wRichText"><p class="mb-rs-5oxgyh"><span class="mb-rs-lqe5mz">下午好，昵称</span></p></div><div data-mb-cid="VVOCVTnqbTAOPs" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:67px;top:65px;width:64px;height:64px;z-index:4"><span class="mb-icon mb-svg-icon-wrap" style="position:relative;display:block;width:100%;height:100%;min-width:64px;min-height:64px;--mb-icon-fill:rgba(108,108,108,1)"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 24 24" width="64" height="64" aria-hidden="true"><g><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 0 1-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 0 1-6 3.22z"></path></g></svg></span></div><div data-mb-cid="wwVST0RZVVOAXOoJAVRaEU" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:201px;top:852px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVST0NtVVOAXOom9JGQhF" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-9px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVST0JJVVOAXOoQMmMMZb" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0.5px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVSSxKVVVOAXOoZkr7ccN" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:42px;top:-1px;width:0px;height:0px;z-index:4"><div data-mb-cid="wwVSSxFaVVOAXOonyeCd0Z" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:4px;top:16.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVVOAXOo25FxjFl" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药方案</span></p></div></div><div data-mb-cid="VSSoxirHVVOAXOoa41MPwq" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-10px;top:-30.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jluupe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="64 64 896 896" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1cfdrz1"></use></svg></span></div></div><div data-mb-cid="wwVST0FyVVOAXOoue0Jxwn" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:155px;top:-1px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1nff1zv" style="position:absolute;left:-40px;top:0.5px;width:80px;height:29px;z-index:2" data-mb-cid="VSSvjewoVVOAXOoe2lz8fD" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">我的</span></p></div><div data-mb-cid="VSSpRwKNVVOAXOomg6xlGQ" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-34px;top:-29.5px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jonfu6" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="30" height="30" aria-hidden="true"><use href="#mb-svg-qxqlub"></use></svg></span></div></div><div data-mb-cid="wwVSSxRKVVOAXOoKXbIm5Q" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-56px;top:-3px;width:0px;height:0px;z-index:2"><div data-mb-cid="wwVSSxMzVVOAXOobq5dgYX" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:18.5px;width:0px;height:0px;z-index:2"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:-14px;width:80px;height:28px;z-index:1" data-mb-cid="VSSvjewoVVOAXOod7kKuw2" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">用药记录</span></p></div></div><div data-mb-cid="wwVSSxP9VVOAXOogGuk9Nx" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0.5px;top:-14px;width:0px;height:0px;z-index:1"><div data-mb-cid="VSSpAXQHVVOAXOogCibO1c" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-14.5px;top:-14.5px;width:29px;height:29px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-jluupe" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 448 512" width="29" height="29" aria-hidden="true"><use href="#mb-svg-1c5pf5y"></use></svg></span></div></div></div><div data-mb-cid="wwVST0BTVVOAXOoky6a4x0" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-155px;top:-0.5px;width:0px;height:0px;z-index:1"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left mb-s-1fgmlpr" style="position:absolute;left:-40px;top:3px;width:80px;height:28px;z-index:2" data-mb-cid="VSSvjewoVVOAXOobiKNp7p" data-mb-type="wRichText"><p class="mb-rs-1jubbvj"><span class="mb-rs-183hdfn">吃药打卡</span></p></div><div data-mb-cid="VSSoylXHVVOAXOoHCyFEKV" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:-15px;top:-31px;width:30px;height:30px;z-index:1"><span class="mb-icon mb-svg-icon-wrap mb-s-2b5x5u" style="position:relative;width:100%;height:100%"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true"><use href="#mb-svg-1uoa4qh"></use></svg></span></div></div></div></div><div data-mb-cid="VSSplg0yVVOAXOoewLESfu" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-fw4bh6" style="position:absolute;left:-201px;top:-53px;width:402px;height:75px;z-index:1"></div></div><div data-mb-cid="UquSrzRcVVOUYpUyxWsuZA" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1tefipp" style="position:absolute;left:2px;top:0px;width:400px;height:261px;z-index:1"></div></div></div></div><div data-mb-cid="rcVSSz8pVVOTLgjyAt2Wvx" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:13" data-mb-route="#%E9%A1%B5%E9%9D%A2%208"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""></div></div></div><div data-mb-cid="rcUrZcWjVVOTi4CoNDxxdP" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:393px;height:852px;z-index:16" data-mb-route="#%E5%B8%B8%E7%94%A8%E6%94%AF%E4%BB%98%E9%A1%B5"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="UrZfiInqVVOTi4CcMWxc1d" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;width:0px;height:0px;left:calc(16px + var(--mb-fixed-scroll-x, 0px));top:calc(-127px + var(--mb-fixed-scroll-y, 0px));z-index:24" data-mb-fixed-region="header"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-center" style="position:absolute;left:147px;top:867px;width:64px;height:17px;z-index:3;color:rgba(255,255,255,1);font-family:PingFangSC;font-size:16px;font-weight:400;font-style:normal;line-height:19px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:flex-start;white-space:break-spaces" data-mb-cid="UrZfiInqVVOTi4CmZvCjOP" data-mb-type="wRichText">确认收款</div><div data-mb-cid="UrZfiInEVVOTi4C5Sf6FEd" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:12px;top:850px;width:335px;height:48px;z-index:1;background:rgba(76,175,80,1);border-radius:24px 24px 24px 24px"></div></div><div data-mb-cid="UrZmAf4RVVOTi4CZr0qqTp" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:32px;top:389px;width:37px;height:37px;z-index:18"><span class="mb-icon mb-svg-icon-wrap" style="position:relative;display:block;width:100%;height:100%;min-width:37px;min-height:37px;--mb-icon-fill:rgba(67,146,229,1)"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 1024 1024" width="37" height="37" aria-hidden="true"><g><path d="M921.6 518.6624a77.824 77.824 0 0 0-6.4-0.2624h-153.6c-42.4128 0-76.8 34.3872-76.8 76.8s34.3872 76.8 76.8 76.8h153.6c2.1568 0 4.288-0.0896 6.4-0.2624V800c0 42.4128-34.3872 76.8-76.8 76.8H179.2c-42.4128 0-76.8-34.3872-76.8-76.8V390.4c0-42.4128 34.3872-76.8 76.8-76.8h665.6c42.4128 0 76.8 34.3872 76.8 76.8v128.2624zM861.5168 275.2H216.5248a76.9792 76.9792 0 0 1 25.9648-12.3776l500.3008-132.224c40.9344-10.816 83.008 13.1392 93.984 53.5168L861.5168 275.2zM761.6 544h134.4a25.6 25.6 0 0 1 25.6 25.6v51.2a25.6 25.6 0 0 1-25.6 25.6h-134.4a51.2 51.2 0 1 1 0-102.4z m6.4 83.2a32 32 0 1 0 0-64 32 32 0 0 0 0 64z" fill="#59AAFF" p-id="20926"></path></g></svg></span></div><div data-mb-cid="UrZlLWUYVVOTi4CyVnlmBx" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:29px;top:588px;width:42px;height:42px;z-index:17"><span class="mb-icon mb-svg-icon-wrap" style="position:relative;display:block;width:100%;height:100%;min-width:42px;min-height:42px;--mb-icon-fill:rgba(164,173,179,1)"><svg class="mb-svg-icon-path-icon" viewBox="0 0 1024 1024" width="42" height="42" aria-hidden="true"><g><path d="M229.643 233.89c-26.054 3.28-52.107 24.846-60.636 49.688-5.683 15.47-107.536 454.219-108.005 462.19-0.949 22.968 12.314 39.844 34.104 44.064 8.055 1.874 266.703 1.874 275.232 0 24.631-4.69 47.843-23.908 56.372-47.345 3.316-8.906 108.48-456.093 108.48-463.595 1.422-21.096-11.372-38.44-31.738-44.533-4.739-0.934-262.912-1.874-273.81-0.47z" fill="#E60012" p-id="18896"></path><path d="M470.762 233.89c-26.054 3.28-52.107 24.846-60.632 49.688-5.214 15.47-107.534 454.219-107.534 462.19-0.95 22.968 12.314 39.844 34.108 44.064 8.05 1.874 266.698 1.874 275.227 0 24.635-4.69 47.847-23.908 56.372-47.345 3.317-8.906 108.479-456.093 108.479-463.595 1.424-21.096-11.366-38.44-31.736-44.533-5.214-0.934-263.387-1.874-274.284-0.47z" fill="#00508E" p-id="18897"></path><path d="M722.308 233.89c-26.054 3.28-52.112 24.846-60.637 49.688-5.209 15.47-107.534 454.219-107.534 462.19-0.945 22.968 12.32 39.844 34.108 44.064 8.055 1.874 200.383 1.874 208.908 0 24.634-4.69 47.847-23.908 56.372-47.345 3.316-8.906 108.484-456.093 108.484-463.595 1.418-21.096-11.371-38.44-31.743-44.533-4.734-1.404-220.748-2.343-231.645-0.934h23.687v0.465z" fill="#00908C" p-id="18898"></path><path d="M221.589 376.39c0 0.47-0.476 3.282-1.42 6.095-10.896 36.562-21.793 85.781-20.37 91.874 3.79 18.283 30.793 16.876 40.266-2.343 2.842-5.154 23.212-90.936 23.212-97.028 0-0.47 32.212 0 32.212 0.464 0 0 0 1.408-0.475 2.817-0.474 1.403-5.683 21.091-11.366 44.529-12.795 49.688-14.213 54.842-20.845 64.686-21.793 31.878-94.746 30.94-100.429-1.404-1.422-7.032 14.213-88.124 21.32-110.159 0-1.403 37.895-0.469 37.895 0.47z m484.139 0c21.79 4.69 28.42 22.03 18.472 47.816-9.947 25.78-31.262 37.028-68.686 37.028-11.371 0-10.423-1.874-17.529 33.282-1.419 6.562-2.841 12.656-2.841 13.594-0.476 2.343-34.11 2.343-33.635 0 28.426-120.468 30.793-130.78 30.793-131.72l0.474-1.402h34.104c27.003 0.464 34.583 0.464 38.848 1.403z m-292.282 46.408c4.735 0.938 8.05 4.69 8.05 7.97 0 11.717-24.16 19.688-33.16 10.779-8.525-8.905 9.475-22.5 25.11-18.75z m-83.849 8.904c0 0.94-0.474 2.817-0.474 4.22l-0.474 1.878 5.683-2.816c15.16-7.497 29.844-6.094 34.583 3.281 2.841 5.629 2.367 8.91-5.21 43.595-1.422 6.094-3.315 14.534-3.79 18.748-1.897 9.38-0.474 8.91-17.528 8.91-14.687 0-14.687 0-14.212-1.408 0-0.938 1.896-8.435 3.79-17.345 7.58-33.277 8.055-37.967 1.422-37.967-3.79 0-9.004 2.343-9.473 3.75-0.948 3.282-9.478 44.06-9.952 47.812l-0.945 4.22-14.687 0.938c-17.998 0.47-16.58 1.873-12.79-14.064 5.21-20.626 8.055-35.154 9.949-48.28 2.367-14.063 0.948-12.655 14.212-14.532 6.158-0.94 12.315-1.874 14.213-2.343 4.735-1.409 5.683-0.94 5.683 1.403z m225.014-0.464c0 0.933-0.474 2.811-0.474 4.216l-0.476 2.346 5.688-2.816c29.37-14.998 40.737-2.813 32.212 35.628-1.893 8.436-4.265 20.623-5.683 26.25-0.949 6.094-2.372 11.248-2.842 11.717-1.898 1.874-29.844 1.41-29.375 0 0-0.938 1.898-8.435 3.791-16.875 8.056-34.216 8.056-38.436 0.949-38.436-5.683 0-8.525 1.873-9.473 6.092-1.424 5.155-8.53 38.906-9.475 45l-0.948 5.158-14.687 0.47c-17.999 0.465-16.58 2.342-12.316-15.003 4.74-18.75 8.056-36.094 10.423-48.749 1.893-12.187 0.474-10.782 12.315-12.656 5.213-0.938 11.846-1.878 14.214-2.342 4.738-2.348 6.157-1.878 6.157 0z m287.547-0.47c1.892 28.592 2.368 37.028 2.368 37.498 0 0.47 4.264-7.032 8.999-16.406 9.473-18.749 7.58-16.876 18.002-18.28 2.842-0.469 8.525-1.409 12.79-2.342 10.423-1.878 10.423-2.817-1.423 17.81-16.105 27.658-38.368 66.564-46.423 80.627-24.157 43.591-24.157 43.591-44.527 44.06l-12.316 0.47 0.945-3.282c0.474-1.873 1.897-5.623 2.37-8.435l1.42-5.159h3.79c4.265 0 5.209-0.94 9-7.502 1.423-2.342 3.79-6.093 4.738-8.435 1.42-2.343 6.158-9.844 9.949-17.345l7.58-13.125-1.897-17.34c-2.367-20.158-5.209-44.065-6.631-51.097-0.95-6.562-0.95-6.562 7.58-7.5 3.79-0.466 9.948-1.874 13.264-2.343 8.999-2.812 9.947-2.812 10.422-1.874z m-357.183 0.47c36.476 6.562 23.686 69.37-16.106 78.28-27.003 6.094-45.475-4.22-45.475-24.847 0.47-36.093 27.472-59.53 61.58-53.433z m272.86 1.873c1.893 0.938 4.739 2.812 6.158 4.22 2.367 2.342 2.367 2.342 2.367 0.934 0.475-1.873 0-1.873 18.951-4.685 15.158-2.342 14.684-2.342 13.739 1.874-6.158 26.249-11.371 49.217-13.739 60.47-3.315 16.876-0.948 14.998-19.421 14.529h-15.635v-1.874c0-1.873-0.945-2.812-1.894-1.407-5.213 8.44-30.792 5.158-37.898-5.155-17.525-26.25 19.896-81.562 47.371-68.906z m-340.129 13.595s0 2.342-0.474 4.219c-3.786 14.999-10.418 45.469-11.842 51.092l-1.422 7.032-15.632 0.469c-18.472 0.47-17.528 1.404-13.738-9.843 3.316-10.783 6.633-23.908 8.53-37.972 1.892-12.186 0-10.313 13.738-12.186 6.157-0.94 12.79-1.873 14.208-2.342 3.79-0.939 6.158-0.939 6.632-0.47z m82.9 97.028c0 0.47-0.944 2.348-2.367 4.69-0.95 2.342-2.367 4.22-2.367 4.22 27.946 0.464 28.895 0.464 28.42 1.873l-5.209 16.876h-40.74l-2.367 1.873c-5.214 4.689-32.686 10.782-32.686 7.031l5.21-16.875h3.789c6.632 0 8.05-1.404 13.738-11.247l4.735-8.91c24.636-0.465 29.843 0 29.843 0.47z m62.06 0c0 0.47-0.475 2.812-1.424 5.629-0.948 2.342-1.417 4.685-1.417 5.154 0 0 2.366-0.94 5.207-3.28 10.423-7.033 19.422-8.437 45.95-8.437 10.423 0 19.422 0 19.896 0.465 0.475 0.939-15.156 51.565-17.528 56.25-3.316 6.098-6.633 9.379-11.84 11.721l-4.74 1.874-26.998 0.47-27.003 0.468-4.738 15.937c-9.474 30.47-9.474 28.128 4.264 26.72 10.897-0.94 10.423-1.873 7.107 9.374l-2.842 9.375h-13.738c-29.844 0.47-33.634-1.404-30.793-13.594 1.423-6.094 35.528-117.656 36.002-118.595 0.474-0.465 24.635-0.465 24.635 0.47z m124.584 0c0 0.47-0.474 1.877-0.944 3.75-1.423 4.69-1.423 4.69 4.735 1.41 8.054-4.221 27.002-5.629 65.845-5.629h12.32v5.629c0 6.562 0.475 7.03 6.158 7.966l4.264 0.469-2.372 8.44-2.366 8.435h-8.53c-21.789 0.47-25.104-1.873-25.58-14.528v-6.098l-1.418 4.22-1.423 4.69H733.2c-2.367 0-4.735 0-4.735 0.47 0 0-23.211 76.401-26.528 87.184-0.474 0.94 0 1.409 2.843 1.409 4.264 0 4.264 0 2.841 3.745-1.419 4.221-1.419 4.221 3.316 4.221 3.316 0 5.214-0.47 7.58-1.873 3.317-1.878 3.317-1.408 18.473-22.5l6.158-8.909h-12.79c-15.631 0-14.207 0.939-11.366-8.435l2.367-7.502h31.268c2.841-9.844 3.785-12.656 3.785-13.125 0-0.47-6.632-0.47-15.156-0.47h-15.158l4.735-16.875h42.633c23.212 0 42.638 0 42.638 0.47 0 0.469-0.948 4.22-2.37 8.44l-2.368 7.966-14.213 0.469-14.21 0.469c-2.37 7.032-3.315 10.313-3.789 11.252l-0.474 1.873h13.738c16.106 0 15.157-0.938 11.84 8.436l-2.367 7.501h-31.266l-4.735 5.624h12.316l1.892 11.252c1.898 12.656 1.898 12.656 8.055 12.656 4.74 0 4.74-0.94 1.424 10.312l-2.847 9.375h-8.999c-15.631 0-18.473-2.342-21.32-18.28l-1.418-10.313-5.683 7.502c-15.636 21.091-16.58 21.56-36.476 21.56-12.794 0-12.794 0-10.897-3.75 0.475-1.873 0.475-1.873-3.316-1.873-3.79 0-3.79 0-4.738 2.812l-0.475 2.811H666.88l0.474-1.408c1.424-4.684 3.79-4.215-25.105-4.215-25.109 0-26.527 0-26.053-1.409l2.368-8.435c2.841-8.44 2.367-8.44 5.209-8.44 2.37 0 2.37 0 3.315-3.281 22.268-73.592 29.374-97.03 30.319-100.31l1.897-6.094h13.264c8.525 0 14.682 0.465 14.682 0.934z m-168.167 40.314l-5.213 16.406h-28.42c-2.842 9.375-3.79 12.187-4.266 13.125-0.474 1.409 0.475 1.409 14.214 1.409 8.054 0 14.686 0.47 14.686 0.47 0 0.464-0.474 1.402-0.95 2.81-0.473 0.935-1.422 4.686-2.365 8.436l-1.898 6.093H475.5l-3.316 11.252c-4.738 15.937-4.264 16.406 13.738 14.064 7.581-0.939 7.107-1.877 3.79 9.375l-2.841 9.374h-19.9c-31.263 0-31.737-0.939-23.212-27.658 2.372-8.436 4.74-15.468 4.74-15.468s-3.317-0.47-8.056-0.47c-4.26 0-8.05 0-8.05-0.469 3.315-11.716 4.734-15.468 4.734-16.406 0.474-0.934 1.423-1.403 8.53-1.403h8.05l3.79-14.534h-7.576c-5.688 0-7.58 0-7.58-0.939 0-0.933 4.264-14.528 4.733-15.937 0.95-0.933 72.483-0.469 72.008 0.47z m91.9 33.752c0 0.938-0.949 3.75-1.42 6.093-2.846 13.125-6.631 15.937-21.792 16.875-5.209 0.47-9.948 0.938-9.948 0.938-0.949 1.405-0.949 12.657 0 14.53l1.423 1.877 9.473-0.47c5.21-0.469 9.474-0.469 9.474-0.469 0 0.939-5.21 17.345-5.684 17.81-0.948 0.94-29.843 0.47-33.634-0.934-5.683-1.878-5.683-1.409-5.214-30.94l0.476-25.78h24.16v9.844h4.74c5.208 0 5.682-0.47 8.05-7.033l1.422-3.75h9.475c8.524 0.47 9.473 0.47 8.999 1.409z m44.53-200.626l-5.213 22.5h7.107c36.476 0.938 51.637-40.784 16.105-43.596-5.684-0.47-10.893-0.939-11.367-0.939-1.422 0-1.422 1.41-6.631 22.035z m-188.542 31.874c-8.999 3.75-17.524 37.501-10.417 42.656 5.208 4.22 12.79-2.812 16.58-14.529 6.158-21.565 4.26-31.878-6.163-28.127z m282.339 2.342c-9.478 4.69-16.58 37.971-9.478 41.721 9.478 5.155 21.794-12.654 21.794-31.877 0-8.905-5.214-13.125-12.316-9.844zM557.927 562.957l-2.368 8.436c-1.422 4.22-2.367 7.97-2.841 8.435 0 0.47 2.367-0.465 5.683-2.343 9.473-4.685 12.316-5.623 26.053-6.092l11.846-0.47c1.893-5.623 2.368-7.966 2.368-8.435 0.474-0.47-40.267-0.47-40.741 0.47z m-8.05 27.185l-1.899 7.5 40.741-0.47 2.368-7.5c-32.212 0-41.21 0-41.21 0.47z m128.848-16.876c-1.896 6.097-3.315 10.782-2.841 10.782l5.683-1.873c2.842-0.94 8.055-2.347 10.897-2.812 2.841-0.469 5.209-0.94 5.683-0.94 0 0 4.74-14.532 4.74-15.001 0 0-4.74-0.465-10.423-0.465H682.04l-3.316 10.31z m-7.58 23.907c0 0.469-1.893 5.159-3.317 10.782-1.892 5.624-3.315 10.783-3.315 10.783 0 0.465 2.367-0.47 5.683-1.878 3.316-1.403 8.055-2.812 10.897-3.28 6.157-0.94 6.631-1.404 7.107-3.751 0.474-0.935 1.422-4.685 2.366-7.497l1.898-5.628H682.04c-5.683 0-10.897 0-10.897 0.469z m-16.58 53.908l20.845 0.47c4.264-14.064 5.683-18.754 5.683-19.223l-20.844-0.934-5.684 19.687z" fill="#FFFFFF" p-id="18899"></path></g></svg></span></div><div data-mb-cid="UrZkv9sSVVOTi4CxKfVqe9" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:35px;top:529px;width:30px;height:30px;z-index:16"><span class="mb-icon mb-svg-icon-wrap" style="position:relative;display:block;width:100%;height:100%;min-width:30px;min-height:30px;--mb-icon-fill:rgba(1,160,234,1)"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 1024 1024" width="30" height="30" aria-hidden="true"><g><path d="M860.16 0C950.272 0 1024 73.889684 1024 164.163368v531.509895s-32.768-4.122947-180.224-53.355789c-40.96-14.362947-96.256-34.896842-157.696-57.478737 36.864-63.595789 65.536-137.485474 86.016-215.444211h-202.752v-71.841684h247.808V256.512h-247.808V135.437474h-100.352c-18.432 0-18.432 18.458947-18.432 18.458947v104.663579H200.704v41.040842h249.856v69.793684H243.712v41.013895H645.12c-14.336 51.307789-34.816 98.519579-57.344 141.608421-129.024-43.115789-268.288-77.985684-356.352-55.403789-55.296 14.362947-92.16 38.992842-112.64 63.595789-96.256 116.978526-26.624 295.504842 176.128 295.504842 120.832 0 237.568-67.718737 327.68-178.526316C757.76 742.858105 1024 853.692632 1024 853.692632v6.144C1024 950.110316 950.272 1024 860.16 1024H163.84C73.728 1024 0 950.137263 0 859.836632V164.163368C0 73.889684 73.728 0 163.84 0h696.32zM268.126316 553.121684c93.049263-10.374737 180.062316 26.974316 283.270737 78.874948-74.886737 95.501474-165.941895 155.701895-256.970106 155.701894-157.830737 0-204.368842-126.652632-125.466947-197.200842 26.300632-22.851368 72.838737-35.301053 99.166316-37.376z" fill="#00A0EA" p-id="17816"></path></g></svg></span></div><div data-mb-cid="UrZiZM1kVVOTi4CZLICMSx" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:35px;top:462px;width:30px;height:30px;z-index:15"><span class="mb-icon mb-svg-icon-wrap" style="position:relative;display:block;width:100%;height:100%;min-width:30px;min-height:30px;--mb-icon-fill:rgba(67,201,63,1)"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 1144 1024" width="30" height="30" aria-hidden="true"><g><path d="M436.314353 632.771765c-68.517647 36.321882-78.667294-20.389647-78.667294-20.389647l-85.835294-190.524236c-33.039059-90.533647 28.581647-40.839529 28.581647-40.839529s52.856471 38.038588 93.003294 61.229176c40.086588 23.190588 85.835294 6.806588 85.835294 6.806589l561.212235-246.362353C936.899765 80.112941 765.891765 0 572.235294 0 256.180706 0 0 213.232941 0 476.310588c0 151.311059 84.811294 285.967059 216.937412 373.248l-23.792941 130.288941s-11.625412 38.038588 28.611764 20.389647c27.437176-12.047059 97.370353-55.115294 138.992941-81.347764 65.445647 21.684706 136.734118 33.731765 211.486118 33.731764 316.024471 0 572.235294-213.232941 572.235294-476.310588 0-76.197647-21.594353-148.178824-59.843764-212.028235-178.808471 102.309647-594.733176 340.118588-648.312471 368.489412z" fill="#43C93E" p-id="16833"></path></g></svg></span></div><div data-mb-cid="UrZhYgZ9VVOTi4CK1EgerQ" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:342px;top:401px;width:12px;height:12px;z-index:13"><span class="mb-icon mb-svg-icon-wrap" style="position:relative;display:block;width:100%;height:100%;min-width:12px;min-height:12px;--mb-icon-fill:rgba(255,255,255,1)"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 48 48" width="12" height="12" aria-hidden="true"><g><rect width="48" height="48" fill="white" fill-opacity="0.01"></rect><path d="M10 24L20 34L40 14" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></span></div><div data-mb-cid="UrZfiIdiVVOTi4C2Cu4GRf" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;width:0px;height:0px;left:calc(16px + var(--mb-fixed-scroll-x, 0px));top:calc(-5px + var(--mb-fixed-scroll-y, 0px));z-index:23" data-mb-fixed-region="header"><div data-mb-cid="UrZfiIhTVVOTi4CM6ICSaL" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:6"><div data-mb-cid="UrZfiIn2VVOTi4CzV1adF5" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-65px;width:0px;height:0px;z-index:8"><div data-mb-cid="UrZfiIndVVOTi4CeSo8w7t" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-9is7p7" style="position:absolute;left:322.06px;top:733.5px;width:19.97px;height:20px;z-index:5"></div><div data-mb-cid="UrZfiInWVVOTi4CQUonElt" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiInLVVOTi4CyZm8yLH" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1o8zzz8" style="position:absolute;left:62.92px;top:735px;width:32.95px;height:19px;z-index:3" data-mb-cid="UrZfiIneVVOTi4CDDSaFu9" data-mb-type="wRichText">其它</div></div></div><div data-mb-cid="UrZfiInGVVOTi4CgPfUEQL" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left" style="position:absolute;left:22px;top:736px;width:26px;height:16px;z-index:3;color:rgba(255,255,255,1);font-family:PMZDBiaoTi;font-size:12px;font-weight:400;font-style:normal;line-height:17px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:center;white-space:break-spaces" data-mb-cid="UrZfiIneVVOTi4CPQBvigG" data-mb-type="wRichText"><p style="line-height:17px"><span style="font-family:PMZDBiaoTi;font-size:12px;font-weight:400;line-height:17px">PAY</span></p></div><div data-mb-cid="UrZfiInEVVOTi4CQtN5Ubs" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:17.98px;top:727.5px;width:32.95px;height:32px;z-index:1;background:rgba(139,195,74,1);border-radius:6px 6px 6px 6px"></div></div></div><div data-mb-cid="UrZfiImhVVOTi4CPgIra1Q" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:-65px;width:0px;height:0px;z-index:7"><div data-mb-cid="UrZfiInJVVOTi4CUhLhwdR" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-9is7p7" style="position:absolute;left:322.06px;top:668.5px;width:19.97px;height:20px;z-index:5"></div><div data-mb-cid="UrZfiImfVVOTi4ChTjnfdN" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiInCVVOTi4C2L7VxAc" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1o8zzz8" style="position:absolute;left:62.91px;top:669px;width:48.93px;height:19px;z-index:3" data-mb-cid="UrZfiIn8VVOTi4CVBKRUNS" data-mb-type="wRichText">银行卡</div></div></div><div data-mb-cid="UrZfiImBVVOTi4C6wo93s0" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1pkapr2" style="position:absolute;left:17.97px;top:646px;width:324.55px;height:65px;z-index:1"></div></div><div data-mb-cid="UrZfiIlzVVOTi4CHlv1ZwO" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:5"><div data-mb-cid="UrZfiIl6VVOTi4C9lIcJNe" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-9is7p7" style="position:absolute;left:322.06px;top:538.5px;width:19.97px;height:20px;z-index:5"></div><div data-mb-cid="UrZfiIlyVVOTi4CPRqMSwp" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiIldVVOTi4C6vxDIRV" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1o8zzz8" style="position:absolute;left:62.91px;top:539px;width:48.93px;height:19px;z-index:3" data-mb-cid="UrZfiIlhVVOTi4CC1u29JD" data-mb-type="wRichText">支付宝</div></div></div><div data-mb-cid="UrZfiIleVVOTi4CtfE4iKR" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1pkapr2" style="position:absolute;left:17.97px;top:516px;width:324.55px;height:65px;z-index:1"></div></div><div data-mb-cid="UrZfiIkTVVOTi4CkHcDIMn" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiIlSVVOTi4CNg3rS7x" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-9is7p7" style="position:absolute;left:322.06px;top:473.5px;width:19.97px;height:20px;z-index:5"></div><div data-mb-cid="UrZfiIkDVVOTi4CQiUVOCw" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiIkgVVOTi4C7eJFvfv" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1o8zzz8" style="position:absolute;left:62.92px;top:474px;width:64.91px;height:19px;z-index:3" data-mb-cid="UrZfiIkrVVOTi4CZKP41rq" data-mb-type="wRichText">微信支付</div></div></div><div data-mb-cid="UrZfiIkaVVOTi4C9FT7a3y" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1pkapr2" style="position:absolute;left:17.97px;top:451px;width:324.55px;height:65px;z-index:1"></div></div><div data-mb-cid="UrZfiIh8VVOTi4CmQxwPmd" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div data-mb-cid="UrZfiIkvVVOTi4CCfwJn82" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:322.06px;top:401.5px;width:19.97px;height:20px;z-index:6;background:rgba(76,175,80,1);border-color:rgba(76,175,80,1);border-style:solid;border-width:2px 2px 2px 2px;border-radius:10px 10px 10px 10px"></div><div data-mb-cid="UrZfiIjxVVOTi4CfUuWfQr" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiIjxVVOTi4CvQePdoX" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1tbnmnh" style="position:absolute;left:63.41px;top:417.5px;width:127.82px;height:16px;z-index:3" data-mb-cid="UrZfiIjsVVOTi4CIAirY1z" data-mb-type="wRichText">可用余额 ¥12000.00</div></div><div data-mb-cid="UrZfiIjbVVOTi4CqocKs06" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1o8zzz8" style="position:absolute;left:62px;top:392px;width:118px;height:19px;z-index:3" data-mb-cid="UrZfiIjuVVOTi4CWtoDpo8" data-mb-type="wRichText">钱包余额支付</div></div></div><div data-mb-cid="UrZfiIjlVVOTi4CrREfpE0" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1pkapr2" style="position:absolute;left:17.97px;top:372px;width:324.55px;height:79px;z-index:1"></div></div></div><div data-mb-cid="UrZfiIfmVVOTi4CQn1KBVQ" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:5"><div data-mb-cid="UrZfiIgpVVOTi4ClTrkpjK" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-8px;top:0.5px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiIgmVVOTi4CCMKfeuz" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left" style="position:absolute;left:229.19px;top:320px;width:129.82px;height:16px;z-index:3;color:rgba(255,107,104,1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:17px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:flex-start;white-space:break-spaces" data-mb-cid="UrZfiIgRVVOTi4ChSSvjZI" data-mb-type="wRichText">本单优惠 ¥ 800.00</div></div><div data-mb-cid="UrZfiIgmVVOTi4CVG6f5cu" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-0.29px;top:1px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left" style="position:absolute;left:165.29px;top:320px;width:49.93px;height:14px;z-index:3;color:rgba(255,107,104,1);font-family:NotoSans;font-size:12px;font-weight:400;font-style:normal;line-height:14px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:center;white-space:break-spaces" data-mb-cid="UrZfiIgqVVOTi4ChZcnLBR" data-mb-type="wRichText">收益优惠</div><div data-mb-cid="UrZfiIgPVVOTi4CWAtyMY4" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:159.3px;top:315.5px;width:61.91px;height:21px;z-index:1;background:rgba(255,228,225,1);border-radius:4px 4px 4px 4px"></div></div></div><div data-mb-cid="UrZfiIgQVVOTi4CCdJ3sMT" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1tbnmnh" style="position:absolute;left:17.47px;top:318.5px;width:29.96px;height:16px;z-index:3" data-mb-cid="UrZfiIgFVVOTi4CmbQDadZ" data-mb-type="wRichText">优惠</div></div><div data-mb-cid="UrZfiIgeVVOTi4ChHoINJE" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1pkapr2" style="position:absolute;left:-0.5px;top:298.5px;width:349.52px;height:54px;z-index:1"></div></div><div data-mb-cid="UrZfiIfvVVOTi4Cgv4wru2" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:8.5px;top:0px;width:0px;height:0px;z-index:4"><div data-mb-cid="UrZfiIfMVVOTi4CAlgWItM" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left" style="position:absolute;left:191.22px;top:265.5px;width:160.78px;height:16px;z-index:3;color:rgba(102,102,102,1);font-family:NotoSans;font-size:14px;font-weight:400;font-style:normal;line-height:17px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:center;white-space:break-spaces" data-mb-cid="UrZfiIfLVVOTi4Cmk2aM6Z" data-mb-type="wRichText">张女士（188****8888）</div></div><div data-mb-cid="UrZfiIftVVOTi4Cv53eN2n" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-justify mb-s-1tbnmnh" style="position:absolute;left:-0.01px;top:264.5px;width:59.92px;height:16px;z-index:3" data-mb-cid="UrZfiIfEVVOTi4CwtXscNv" data-mb-type="wRichText">客户信息</div></div><div data-mb-cid="UrZfiIfdVVOTi4CIQeJoPU" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-1pkapr2" style="position:absolute;left:-0.01px;top:245px;width:341.53px;height:53px;z-index:1"></div></div><div data-mb-cid="UrZfiIdIVVOTi4CuM8wfJt" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div data-mb-cid="UrZfiIezVVOTi4CXR3WtBA" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-center" style="position:absolute;left:114.84px;top:198.5px;width:130.82px;height:16px;z-index:3;color:rgba(153,153,153,1);font-family:NotoSans;font-size:14px;font-weight:400;font-style:normal;line-height:17px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:flex-start;white-space:break-spaces" data-mb-cid="UrZfiIelVVOTi4C35O6WKZ" data-mb-type="wRichText">订单金额：¥1000.00</div></div><div data-mb-cid="UrZfiIdsVVOTi4CNBZSXZ2" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-center" style="position:absolute;left:113.85px;top:131px;width:148.79px;height:57px;z-index:4;color:rgba(0,0,0,1);font-family:PingFangSC;font-size:48px;font-weight:400;font-style:normal;line-height:58px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:flex-start;white-space:break-spaces" data-mb-cid="UrZfiIefVVOTi4C8AwvZBY" data-mb-type="wRichText">9.9</div><div data-mb-cid="UrZfiIdWVVOTi4Cu9NJdNH" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:3"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-center" style="position:absolute;left:95.87px;top:146.5px;width:18.97px;height:38px;z-index:3;color:rgba(0,0,0,1);font-family:PingFangSC;font-size:32px;font-weight:400;font-style:normal;line-height:38px;letter-spacing:0px;text-align:center;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:center;justify-content:flex-start;white-space:break-spaces" data-mb-cid="UrZfiIecVVOTi4Cz1I9op7" data-mb-type="wRichText">¥</div></div></div></div></div><div data-mb-cid="UrZcWjAgVVOTi4ChZSjtlW" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB" style="position:absolute;width:393px;height:54px;color:rgba(16,16,16,1);font-family:PingFangSC;font-size:14px;font-weight:400;font-style:normal;line-height:20px;letter-spacing:0px;text-decoration:none;align-items:center;justify-content:center;left:calc(0px + var(--mb-fixed-scroll-x, 0px));top:calc(0px + var(--mb-fixed-scroll-y, 0px));z-index:22" data-mb-fixed-region="header"><div class="mb-iPhoneX-StatusBar" style="color:rgba(16,16,16,1);background:transparent"><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div><div data-mb-cid="UrZgUkoEVVOTi4CZrPRGfA" data-mb-type="wIcon" class="mb-tree-node mb-wIcon mb-s-1340zf0" style="position:absolute;left:16px;top:71.5px;width:20px;height:20px;z-index:10"><span class="mb-icon mb-svg-icon-wrap" style="position:relative;display:block;width:100%;height:100%;min-width:20px;min-height:20px;--mb-icon-fill:rgba(0,0,0,1)"><svg class="mb-svg-icon-path-icon mb-fill" viewBox="0 0 32 32" width="20" height="20" aria-hidden="true"><g><path d="M9.476 16.257c-0.103-0.435 0.015-0.912 0.355-1.251l10.685-10.685c0.521-0.521 1.365-0.521 1.886 0s0.521 1.365 0 1.886l-9.745 9.745 9.746 9.746c0.521 0.521 0.521 1.365 0 1.886s-1.365 0.521-1.886 0l-10.685-10.685c-0.171-0.171-0.296-0.388-0.354-0.632l-0.002-0.009z"></path></g></svg></span></div><div data-mb-cid="UrZfiIbcVVOTi4CVdxzFUy" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;width:0px;height:0px;left:calc(18px + var(--mb-fixed-scroll-x, 0px));top:calc(8px + var(--mb-fixed-scroll-y, 0px));z-index:21" data-mb-fixed-region="header"><div data-mb-cid="UrZfiIbiVVOTi4C7LXmxzp" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:-18px;top:0px;width:0px;height:0px;z-index:3"><div data-mb-cid="UrZfiIcaVVOTi4CHFQl5sZ" data-mb-type="wWrap" class="mb-tree-node mb-wWrap" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:4"><div class="mb-tree-node mb-wRichText mb-rich-text mb-h-left" style="position:absolute;left:41px;top:63px;width:108px;height:21px;z-index:3;color:rgba(0,0,0,1);font-family:PingFangSC;font-size:18px;font-weight:400;font-style:normal;line-height:22px;letter-spacing:0px;text-align:left;text-decoration:none;writing-mode:horizontal-tb;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;overflow:hidden;align-items:flex-start;justify-content:center;white-space:break-spaces" data-mb-cid="UrZfiIcIVVOTi4CXr0foNi" data-mb-type="wRichText"><p style="line-height:22px"><span style="font-family:PingFangSC;font-weight:500">选择支付方式</span></p></div></div></div><div data-mb-cid="UrZfiIbuVVOTi4Cu6Ry2O2" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:-18px;top:44px;width:393px;height:56px;z-index:1;border-color:rgba(229,229,229,1);border-style:solid;border-width:0px 0px 1px 0px;border-radius:0px 0px 0px 0px"></div></div><div data-mb-cid="UrZcWjBUVVOTi4CkqbMvdV" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-5hautg" style="position:absolute;width:134px;height:5px;left:calc(129.5px + var(--mb-fixed-scroll-x, 0px));top:calc(748.5px + var(--mb-fixed-scroll-y, 0px));z-index:20" data-mb-fixed-region="footer"></div><div data-mb-cid="UrZcWjAGVVOTi4Ceyugs2j" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;width:393px;height:34px;border-radius:0px;left:calc(0px + var(--mb-fixed-scroll-x, 0px));top:calc(734px + var(--mb-fixed-scroll-y, 0px));z-index:19" data-mb-fixed-region="footer"></div></div></div></div><div data-mb-cid="rcUquQZPVVOU0oHaEk9g6h" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas" style="position:absolute;left:0;top:0;width:393px;height:852px;z-index:17;background:rgba(244,244,244,1);border-radius:0px;margin:0" data-mb-route="#%E5%8C%BB%E7%96%97%E7%B1%BB%E9%A6%96%E9%A1%B5"><div class="mb-canvas-viewport mb-s-1nuo07x" style=""><div class="mb-container-content mb-isClipContent mb-s-1nuo07x" style=""></div></div></div></main><main id="mb-1mek2ba" class="mb-page mb-s-htlxur" data-mb-cid="rbpVSRjcC3NUnuXx5" data-mb-type="rResBunch" style="width:402px;height:874px"><div data-mb-cid="rcVSRjcC53P882Rw" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:5" data-mb-route="#%E9%A1%B5%E9%9D%A2%201-2"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="VSRjcC6hmeyWLm" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:49px;z-index:6"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div></div></div></div><div data-mb-cid="rcVSRjcCVSSnH7ONmjxr64" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:6" data-mb-route="#%E9%A1%B5%E9%9D%A2%202-2"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="VSRjcC6hVSSnH7OBFWorNd" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:49px;z-index:6"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div></div></div></div><div data-mb-cid="rcVSRjcCVSSnHXr7h99u0h" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:7" data-mb-route="#%E9%A1%B5%E9%9D%A2%203-2"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="VSRjcC6hVSSnHXrag6EoUv" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:49px;z-index:6"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div></div></div></div></main><main id="mb-1cap0o" class="mb-page mb-s-htlxur" data-mb-cid="rbpVSRhxvis6VVZFv" data-mb-type="rResBunch" style="width:402px;height:874px"><div data-mb-cid="rcVSRhxvn8RTKa2Z" data-mb-type="rResCanvas" class="mb-tree-node mb-rResCanvas mb-route-canvas mb-s-1khryo6" style="position:absolute;left:0;top:0;width:402px;height:874px;z-index:5" data-mb-route="#%E9%A1%B5%E9%9D%A2%201-3"><div class="mb-canvas-viewport mb-s-xhz3e3" style=""><div class="mb-container-content mb-isClipContent mb-s-xhz3e3" style=""><div data-mb-cid="VSRhxvoP1EhbHL" data-mb-type="wIphoneXSB" class="mb-tree-node mb-wIphoneXSB mb-s-trh74h" style="position:absolute;left:0px;top:0px;width:402px;height:54px;z-index:6"><div class="mb-iPhoneX-StatusBar mb-s-uek826" style=""><div class="mb-StatusBarTime">12:00</div><div class="mb-StatusBarSignal"><svg class="mb-status-icon" width="17" height="12" viewBox="0 0 17 12" aria-hidden="true"><use href="#mb-svg-1ip41op"></use></svg></div><div class="mb-StatusBarWifi"><svg class="mb-status-icon" width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><use href="#mb-svg-1elfqns"></use></svg></div><div class="mb-StatusBarBattery"><svg class="mb-status-icon" width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><use href="#mb-svg-4jhxxd"></use></svg></div></div></div><div data-mb-cid="VSRhxvpEaebYib" data-mb-type="wRect" class="mb-tree-node mb-wRect" style="position:absolute;left:0px;top:840px;width:402px;height:34px;z-index:7;background:rgba(248,248,248,1);border-radius:0px"></div><div data-mb-cid="VSRhxvp415AmeR" data-mb-type="wRect" class="mb-tree-node mb-wRect mb-s-5hautg" style="position:absolute;left:134px;top:854.5px;width:134px;height:5px;z-index:8"></div></div></div></div></main><div class="mb-runtime-overlay-root" aria-live="polite"></div></div><script data-mb-page-directory-runtime>(function () {
+  var overview = !!document.querySelector('.mb-document[data-mb-overview="true"]')
+  var routes = Array.from(document.querySelectorAll('.mb-route-canvas')).map(function (canvas) {
+    var route = canvas.dataset.mbRoute || ''
+    var name = route.replace(/^#/, '')
+    try { name = decodeURIComponent(name) } catch (_error) {}
+    var page = canvas.closest('.mb-page')
+    return { route: route, name: name || route, pageId: page && page.id }
+  })
+  if (routes.length < 2) return
+  var directory = document.createElement('nav')
+  directory.className = 'mb-page-directory'
+  directory.setAttribute('aria-label', '页面目录')
+  var details = document.createElement('details')
+  details.className = 'mb-page-directory-details'
+  details.open = true
+  var summary = document.createElement('summary')
+  summary.className = 'mb-page-directory-title'
+  summary.title = '折叠或展开页面目录'
+  summary.innerHTML = '<span class="mb-page-directory-label">页面</span>' +
+    '<span class="mb-page-directory-count"><span class="mb-page-directory-current">1</span>' +
+    '<span class="mb-page-directory-separator">/</span><span class="mb-page-directory-total">' +
+    routes.length + '</span></span>'
+  var list = document.createElement('div')
+  list.className = 'mb-page-directory-list'
+  routes.forEach(function (route, index) {
+    var link = document.createElement('button')
+    link.type = 'button'
+    link.className = 'mb-page-directory-link'
+    link.dataset.mbRoute = route.route
+    if (overview && route.pageId) link.dataset.mbOverviewPageId = route.pageId
+    var number = document.createElement('span')
+    number.className = 'mb-page-directory-index'
+    number.textContent = String(index + 1)
+    var name = document.createElement('span')
+    name.className = 'mb-page-directory-name'
+    name.textContent = route.name
+    link.append(number, name)
+    list.appendChild(link)
+  })
+  details.append(summary, list)
+  directory.appendChild(details)
+  ;(document.querySelector('.mb-document') || document.body).appendChild(directory)
+  document.querySelectorAll('.mb-page-directory').forEach(function (directory) {
+    var details = directory.querySelector('.mb-page-directory-details')
+    var handle = directory.querySelector('.mb-page-directory-title')
+    if (!details || !handle) return
+    var drag
+    var suppressClick = false
+    function syncCollapsed() {
+      directory.classList.toggle('mb-collapsed', !details.open)
+    }
+    function clampPosition() {
+      if (!directory.style.left) return
+      var rect = directory.getBoundingClientRect()
+      directory.style.left = Math.max(0, Math.min(
+        window.innerWidth - rect.width, rect.left
+      )) + 'px'
+      directory.style.top = Math.max(0, Math.min(
+        window.innerHeight - rect.height, rect.top
+      )) + 'px'
+    }
+    details.addEventListener('toggle', function () {
+      syncCollapsed()
+      requestAnimationFrame(clampPosition)
+    })
+    handle.addEventListener('pointerdown', function (event) {
+      if (event.button !== 0) return
+      var rect = directory.getBoundingClientRect()
+      drag = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        left: rect.left,
+        top: rect.top,
+        moved: false
+      }
+      try { handle.setPointerCapture(event.pointerId) } catch (_error) {}
+    })
+    handle.addEventListener('pointermove', function (event) {
+      if (!drag || drag.pointerId !== event.pointerId) return
+      var dx = event.clientX - drag.startX
+      var dy = event.clientY - drag.startY
+      if (!drag.moved && Math.max(Math.abs(dx), Math.abs(dy)) < 3) return
+      drag.moved = true
+      var left = Math.max(0, Math.min(
+        window.innerWidth - directory.offsetWidth, drag.left + dx
+      ))
+      var top = Math.max(0, Math.min(
+        window.innerHeight - directory.offsetHeight, drag.top + dy
+      ))
+      directory.style.left = left + 'px'
+      directory.style.top = top + 'px'
+      directory.style.right = 'auto'
+      event.preventDefault()
+    })
+    function finishDrag(event) {
+      if (!drag || drag.pointerId !== event.pointerId) return
+      suppressClick = drag.moved
+      drag = undefined
+      if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId)
+      setTimeout(function () { suppressClick = false })
+    }
+    handle.addEventListener('pointerup', finishDrag)
+    handle.addEventListener('pointercancel', finishDrag)
+    handle.addEventListener('click', function (event) {
+      if (suppressClick) event.preventDefault()
+    })
+    window.addEventListener('resize', clampPosition)
+    syncCollapsed()
+  })
+})()
+//# sourceURL=flat2code-page-directory-runtime.js</script><script data-mb-overview-directory>(function () {
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest && event.target.closest('[data-mb-overview-page-id]')
+    if (!button) return
+    var page = document.getElementById(button.dataset.mbOverviewPageId)
+    if (page) page.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+})()
+//# sourceURL=flat2code-overview-directory.js</script></body></html>

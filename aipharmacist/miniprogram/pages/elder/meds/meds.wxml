@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- 子女：主页直接展示各成员药品 -->
+  <block wx:if="{{role === 'child'}}">
+    <view class="empty" wx:if="{{!family.length}}">
+      <text>还没有用药方案，点下方按钮添加</text>
+    </view>
+
+    <view class="member-card" wx:for="{{family}}" wx:key="openid" wx:for-item="member">
+      <view class="member-head">
+        <view class="family-avatar">{{member.isSelf ? '我' : (member.nickname ? member.nickname[0] : '家')}}</view>
+        <view class="member-title">{{member.isSelf ? '我' : (member.nickname || '家人')}}</view>
+        <view class="member-count">{{member.meds.length}} 种药</view>
+      </view>
+
+      <view class="member-meds">
+        <view
+          class="member-med"
+          wx:for="{{member.meds}}"
+          wx:for-item="med"
+          wx:for-index="mi"
+          wx:key="_id"
+          wx:if="{{member.showAll || mi < 3}}"
+        >
+          <view class="member-med-left">
+            <view class="member-med-name">{{med.drug_name}}</view>
+            <view class="member-med-meta">{{med.take_time}} · {{med.timing}} · {{med.frequency}}</view>
+          </view>
+          <view class="med-actions">
+            <text class="action" data-id="{{med._id}}" data-owner="{{member.openid}}" catchtap="goEdit">编辑</text>
+            <text class="action danger" data-id="{{med._id}}" catchtap="del">删除</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="member-toggle" wx:if="{{member.meds.length > 3}}" data-openid="{{member.openid}}" bindtap="toggleAll">
+        <text>{{member.showAll ? '收起' : '查看全部 ' + member.meds.length + ' 种'}}</text>
+      </view>
+    </view>
+
+    <button class="add-btn" bindtap="goAdd" style="width: 374rpx; height: 120rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 0rpx">＋ 添加用药方案</button>
+  </block>
+
+  <!-- 老人：自己的药列表 -->
+  <block wx:else>
+    <view class="empty" wx:if="{{!meds.length}}">
+      <text>还没有药品，点下方按钮添加</text>
+    </view>
+    <view class="med-card" wx:for="{{meds}}" wx:key="_id">
+      <view class="med-top">
+        <view class="med-name">{{item.drug_name}}</view>
+        <view class="med-actions">
+          <text class="action" data-id="{{item._id}}" catchtap="goEdit">编辑</text>
+          <text class="action danger" data-id="{{item._id}}" catchtap="del">删除</text>
+        </view>
+      </view>
+      <view class="med-meta">{{item.take_time}} · {{item.timing}} · {{item.frequency}}</view>
+      <view class="med-category">{{item.drug_category}}</view>
+    </view>
+    <button class="add-btn" bindtap="goAdd">＋ 添加药品</button>
+  </block>
+</view>

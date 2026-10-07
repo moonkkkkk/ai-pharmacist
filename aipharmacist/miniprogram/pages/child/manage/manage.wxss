@@ -1,0 +1,44 @@
+.container {
+  padding: 30rpx;
+}
+
+.form-item {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 24rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #888888;
+  margin-bottom: 16rpx;
+}
+
+.input {
+  font-size: 32rpx;
+  color: #333333;
+  height: 60rpx;
+}
+
+.picker-value {
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.radio-item {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 40rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.save-btn {
+  margin-top: 40rpx;
+  height: 96rpx;
+  border-radius: 16rpx;
+  background: #07c160;
+  color: #ffffff;
+  font-size: 34rpx;
+}

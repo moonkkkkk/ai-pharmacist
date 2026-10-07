@@ -1,0 +1,9 @@
+{
+  "name": "generateText",
+  "version": "1.0.0",
+  "description": "AI 生活化用药提醒文案生成 + 护栏过滤",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

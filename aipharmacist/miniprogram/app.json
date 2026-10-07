@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/elder/today/today",
+    "pages/elder/meds/meds",
+    "pages/elder/records/records",
+    "pages/elder/mine/mine",
+    "pages/elder/editPlan/editPlan",
+    "pages/child/monthly/monthly",
+    "pages/bind/bind"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2BB3A3",
+    "navigationBarTitleText": "AI 云药师",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#2BB3A3",
+    "backgroundColor": "#ffffff",
+    "list": [
+      { "pagePath": "pages/elder/today/today", "text": "吃药打卡" },
+      { "pagePath": "pages/elder/meds/meds", "text": "用药方案" },
+      { "pagePath": "pages/elder/records/records", "text": "用药记录" },
+      { "pagePath": "pages/elder/mine/mine", "text": "我的" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

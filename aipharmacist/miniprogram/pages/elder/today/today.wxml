@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="sub-bar {{subscribed ? 'on' : ''}}" bindtap="onToggleSub">
+    <view class="sub-dot {{subscribed ? 'on' : ''}}"></view>
+    <view class="sub-text">{{subscribed ? (role === 'child' ? '漏服通知已开启' : '每日提醒已开启') : (role === 'child' ? '漏服通知已关闭，点我开启' : '提醒已关闭，点我开启')}}</view>
+    <view class="sub-tag">{{subscribed ? '已开启' : '去开启'}}</view>
+  </view>
+
+  <view class="date">{{today}}</view>
+
+  <view class="member-tabs" wx:if="{{role === 'child' && memberList.length > 1}}">
+    <view
+      wx:for="{{memberList}}"
+      wx:key="openid"
+      class="member-tab {{owner_openid === item.openid ? 'active' : ''}}"
+      data-openid="{{item.openid}}"
+      bindtap="changeMember"
+    >{{item.isSelf ? '自己' : item.nickname}}</view>
+  </view>
+
+  <view class="empty" wx:if="{{!meds.length}}">
+    <text>今天没有需要吃的药</text>
+  </view>
+
+  <view class="med-card {{item.taken ? 'done' : ''}}" wx:for="{{meds}}" wx:key="_id">
+    <view class="med-top">
+      <view class="med-name">{{item.drug_name}}</view>
+      <view class="med-badge {{item.taken ? 'ok' : 'wait'}}">{{item.taken ? '已服用' : '待服用'}}</view>
+    </view>
+    <view class="med-meta">{{item.take_time}} · {{item.timing}}</view>
+    <button
+      class="take-btn {{item.taken ? 'done' : ''}}"
+      data-id="{{item._id}}"
+      data-index="{{index}}"
+      bindtap="takeMedicine"
+    >{{item.taken ? '已吃药' : '我吃药了'}}</button>
+  </view>
+</view>

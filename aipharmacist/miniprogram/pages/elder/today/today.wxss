@@ -1,0 +1,146 @@
+.container {
+  padding: 32rpx;
+}
+
+/* 订阅状态条 */
+.sub-bar {
+  display: flex;
+  align-items: center;
+  background: #FDECEC;
+  border-radius: 20rpx;
+  padding: 28rpx 32rpx;
+  margin-bottom: 32rpx;
+}
+
+.sub-bar.on {
+  background: #E6F5F2;
+}
+
+.sub-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #E64340;
+  margin-right: 20rpx;
+}
+
+.sub-dot.on {
+  background: #2BB3A3;
+}
+
+.sub-text {
+  flex: 1;
+  font-size: 34rpx;
+  color: #E64340;
+  font-weight: 500;
+}
+
+.sub-bar.on .sub-text {
+  color: #1E8C82;
+}
+
+.sub-tag {
+  font-size: 30rpx;
+  color: #ffffff;
+  background: #E64340;
+  border-radius: 24rpx;
+  padding: 8rpx 24rpx;
+}
+
+.sub-bar.on .sub-tag {
+  background: #2BB3A3;
+}
+
+.date {
+  font-size: 34rpx;
+  color: #999999;
+  margin: 8rpx 8rpx 32rpx;
+}
+
+/* 子女：自己 + 家人切换 */
+.member-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8rpx 8rpx 24rpx;
+}
+
+.member-tab {
+  padding: 12rpx 28rpx;
+  border-radius: 30rpx;
+  background: #F0F0F0;
+  color: #666666;
+  font-size: 30rpx;
+  margin-right: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.member-tab.active {
+  background: #2BB3A3;
+  color: #ffffff;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300rpx;
+  font-size: 36rpx;
+  color: #999999;
+}
+
+/* 药品卡片 */
+.med-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.med-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.med-name {
+  font-size: 46rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.med-badge {
+  font-size: 28rpx;
+  color: #FF9F00;
+  background: #FFF7E8;
+  border-radius: 20rpx;
+  padding: 8rpx 20rpx;
+  flex-shrink: 0;
+}
+
+.med-badge.ok {
+  color: #1E8C82;
+  background: #E6F5F2;
+}
+
+.med-meta {
+  margin-top: 16rpx;
+  font-size: 36rpx;
+  color: #666666;
+}
+
+.take-btn {
+  margin-top: 32rpx;
+  height: 104rpx;
+  border-radius: 52rpx;
+  background: #2BB3A3;
+  color: #ffffff;
+  font-size: 38rpx;
+  font-weight: 500;
+}
+
+.take-btn.done {
+  background: #E6F5F2;
+  color: #1E8C82;
+  border: 2rpx solid #2BB3A3;
+}

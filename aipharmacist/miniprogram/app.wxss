@@ -1,0 +1,43 @@
+/**app.wxss**/
+
+/* ===== 极简医疗风 · 设计规范 =====
+   主色        #2BB3A3  柔和青绿
+   主色深      #1E8C82  按压态/强调
+   主色浅底    #E6F5F2  高亮底色
+   页面背景    #F5F6FA
+   卡片        #FFFFFF
+   标题        #1A1A1A
+   正文        #666666
+   次要文字    #999999
+   分割线      #EEEEEE
+   警示/漏服   #E64340
+   警示浅底    #FDECEC
+   待办/待服   #FF9F00
+   待办浅底    #FFF7E8
+   ============================== */
+
+.container {
+  box-sizing: border-box;
+}
+
+button {
+  background: initial;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button::after {
+  border: none;
+}
+
+page {
+  background: #F5F6FA;
+  padding-bottom: 180rpx;
+}

@@ -1,0 +1,16 @@
+# 依赖
+node_modules/
+
+# 微信开发者工具私有配置
+project.private.config.json
+
+# Claude Code 本地配置
+.claude/
+
+# 环境变量 / 密钥（如未来新增 .env）
+.env
+.env.*
+
+# 系统文件
+.DS_Store
+Thumbs.db

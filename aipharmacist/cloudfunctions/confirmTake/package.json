@@ -1,0 +1,9 @@
+{
+  "name": "confirmTake",
+  "version": "1.0.0",
+  "description": "老人确认服药，回写记录",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,19 @@
+<view class="container">
+
+  <view class="section" style="width: 693rpx; height: 340rpx; display: block; box-sizing: border-box">
+    <view class="section-title">邀请家人</view>
+    <view class="section-desc">点击下方链接分享，对方点开即可绑定</view>
+    
+    <button class="btn " open-type="share" style="position: relative; left: -141rpx; top: 50rpx">转发给家人</button>
+    
+    <button class="btn btn-block btn-ghost" wx:if="{{linkUrl}}" bindtap="copyLink">复制链接</button>
+  </view>
+  
+
+  
+
+  <view class="section" wx:if="{{family.length}}">
+    <view class="section-title">已关联的{{roleLabel}}</view>
+    <view class="member" wx:for="{{family}}" wx:key="openid">{{item.nickname || '家人'}}</view>
+  </view>
+</view>

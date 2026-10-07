@@ -1,0 +1,9 @@
+{
+  "name": "getMonthlyReport",
+  "version": "1.0.0",
+  "description": "生成子女端月报总结（付费功能）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

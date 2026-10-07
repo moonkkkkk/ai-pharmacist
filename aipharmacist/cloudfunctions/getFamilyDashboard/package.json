@@ -1,0 +1,9 @@
+{
+  "name": "getFamilyDashboard",
+  "version": "1.0.0",
+  "description": "子女端看板：聚合家人今日服药状态",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

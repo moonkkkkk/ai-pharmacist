@@ -1,0 +1,362 @@
+.container {
+  padding: 24rpx;
+}
+
+/* 订阅状态条 */
+.sub-bar {
+  display: flex;
+  align-items: center;
+  background: #FDECEC;
+  border-radius: 20rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 24rpx;
+}
+
+.sub-bar.on {
+  background: #E6F5F2;
+}
+
+.sub-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #E64340;
+  margin-right: 16rpx;
+}
+
+.sub-dot.on {
+  background: #2BB3A3;
+}
+
+.sub-text {
+  flex: 1;
+  font-size: 34rpx;
+  color: #E64340;
+  font-weight: 500;
+}
+
+.sub-bar.on .sub-text {
+  color: #1E8C82;
+}
+
+.sub-tag {
+  font-size: 30rpx;
+  color: #ffffff;
+  background: #E64340;
+  border-radius: 24rpx;
+  padding: 6rpx 20rpx;
+}
+
+.sub-bar.on .sub-tag {
+  background: #2BB3A3;
+}
+
+/* 自己 + 家人切换 */
+.member-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24rpx;
+}
+
+.member-tab {
+  padding: 12rpx 28rpx;
+  border-radius: 30rpx;
+  background: #F0F0F0;
+  color: #666666;
+  font-size: 30rpx;
+  margin-right: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.member-tab.active {
+  background: #2BB3A3;
+  color: #ffffff;
+}
+
+/* 今日概览 */
+.status-row {
+  display: flex;
+  margin-bottom: 24rpx;
+  padding: 24rpx 0;
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.status-item {
+  flex: 1;
+  text-align: center;
+}
+
+.num {
+  font-size: 42rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.num.ok { color: #2BB3A3; }
+.num.wait { color: #FF9F00; }
+.num.miss { color: #E64340; }
+
+.label {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* 日历 */
+.cal-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 30rpx 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.04);
+  margin-bottom: 24rpx;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx 28rpx;
+}
+
+.cal-nav {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 46rpx;
+  color: #2BB3A3;
+  background: #E6F5F2;
+  border-radius: 50%;
+}
+
+.cal-title {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.cal-week {
+  display: flex;
+  margin-bottom: 12rpx;
+}
+
+.cal-weekday {
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+  color: #aaaaaa;
+}
+
+.cal-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cal-cell {
+  width: 14.285%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 0;
+}
+
+.cal-cell.blank {
+  opacity: 0;
+}
+
+.cal-day {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 36rpx;
+  color: #333333;
+}
+
+.cal-day.today {
+  color: #2BB3A3;
+  background: #E6F5F2;
+  font-weight: 600;
+}
+
+.cal-day.selected {
+  background: #2BB3A3;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cal-dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #2BB3A3;
+  margin-top: 6rpx;
+}
+
+.cal-dot.miss {
+  background: #E64340;
+}
+
+/* 当日记录 */
+.record-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 30rpx 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.04);
+  margin-bottom: 24rpx;
+}
+
+.record-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 28rpx;
+}
+
+.record-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.empty-date {
+  font-size: 42rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #999999;
+}
+
+.log-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F8FAFB;
+  border-radius: 16rpx;
+  padding: 26rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.log-item:last-child {
+  margin-bottom: 0;
+}
+
+.log-left {
+  flex: 1;
+}
+
+.log-name {
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.log-time {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  color: #999999;
+}
+
+.log-status {
+  font-size: 32rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 24rpx;
+}
+
+.log-status.ok {
+  color: #2BB3A3;
+  background: #E6F5F2;
+  font-weight: 600;
+}
+
+.log-status.todo {
+  color: #FF9F00;
+  background: #FFF7E8;
+}
+
+.log-status.miss {
+  color: #E64340;
+  background: #FDECEC;
+}
+
+/* 折线图 */
+.trend-block {
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.04);
+  padding: 28rpx 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.trend-title {
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 8rpx;
+}
+
+.trend-canvas {
+  width: 100%;
+  height: 200rpx;
+}
+
+/* 周报小结 */
+.summary-block {
+  background: #E6F5F2;
+  border-radius: 16rpx;
+  padding: 22rpx 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.summary-title {
+  font-size: 28rpx;
+  color: #1E8C82;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.summary-text {
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 1.6;
+}
+
+.summary-block.locked {
+  display: flex;
+  align-items: center;
+  background: #F8FAFB;
+}
+
+.summary-lock-text {
+  font-size: 32rpx;
+  color: #999999;
+}
+
+/* 生成周报 / 月报按钮 */
+.btn-row {
+  display: flex;
+  margin-top: 8rpx;
+}
+
+.report-btn {
+  flex: 1;
+  height: 88rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+  border: 2rpx solid #2BB3A3;
+  color: #2BB3A3;
+  font-size: 34rpx;
+}
+
+.report-btn + .report-btn {
+  margin-left: 20rpx;
+}

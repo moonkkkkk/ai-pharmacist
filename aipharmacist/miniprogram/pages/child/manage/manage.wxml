@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="form-item">
+    <view class="label">谁在吃药</view>
+    <picker mode="selector" range="{{ownerNames}}" value="{{ownerIndex}}" bindchange="onOwnerChange">
+      <view class="picker-value">{{ownerNames[ownerIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">药品名称</view>
+    <input class="input" placeholder="请输入药品名" value="{{drug_name}}" bindinput="onInputName" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">类别</view>
+    <picker mode="selector" range="{{categories}}" bindchange="onCategoryChange">
+      <view class="picker-value">{{drug_category}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">服用时间</view>
+    <picker mode="time" value="{{take_time}}" bindchange="onTimeChange">
+      <view class="picker-value">{{take_time}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">服用时机</view>
+    <picker mode="selector" range="{{timings}}" bindchange="onTimingChange">
+      <view class="picker-value">{{timing}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">频次</view>
+    <radio-group bindchange="onFrequencyChange">
+      <label class="radio-item">
+        <radio value="每天" checked="{{frequency === '每天'}}" />每天
+      </label>
+      <label class="radio-item">
+        <radio value="每周" checked="{{frequency === '每周'}}" />每周
+      </label>
+    </radio-group>
+  </view>
+
+  <button class="save-btn" bindtap="save">保存</button>
+</view>

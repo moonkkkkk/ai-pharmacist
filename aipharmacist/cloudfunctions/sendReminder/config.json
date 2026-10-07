@@ -1,0 +1,9 @@
+{
+  "triggers": [
+    {
+      "name": "minute-tick",
+      "type": "timer",
+      "config": "0 */1 * * * * *"
+    }
+  ]
+}

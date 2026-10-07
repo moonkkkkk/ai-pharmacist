@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="header">
+    <view class="header-name">{{nickname}}</view>
+    <view class="header-sub">近 30 天用药月报 · 小云生成</view>
+  </view>
+
+  <view class="stats-row" wx:if="{{generated && !loading && !locked}}">
+    <view class="stat">
+      <view class="stat-num ok">{{stats.rate}}%</view>
+      <view class="stat-label">完成率</view>
+    </view>
+    <view class="stat">
+      <view class="stat-num">{{stats.taken}}</view>
+      <view class="stat-label">已服</view>
+    </view>
+    <view class="stat">
+      <view class="stat-num miss">{{stats.missed}}</view>
+      <view class="stat-label">漏服</view>
+    </view>
+  </view>
+
+  <view class="report-block" wx:if="{{loading}}">
+    <view class="report-title">月报 · 小云</view>
+    <view class="report-text loading">生成中…</view>
+  </view>
+
+  <view class="report-block" wx:elif="{{locked}}">
+    <view class="report-title">月报 · 小云</view>
+    <view class="report-text">服药满一个月后可生成月报</view>
+  </view>
+
+  <view class="report-block" wx:elif="{{summary}}">
+    <view class="report-title">月报 · 小云</view>
+    <view class="report-text">{{summary}}</view>
+  </view>
+
+  <view class="report-block empty" wx:elif="{{generated}}">
+    <view class="report-text">生成失败，请重试</view>
+  </view>
+
+  <view class="hint" wx:if="{{generated && !loading && !locked}}">每天自动更新 · 统计近 30 天</view>
+</view>

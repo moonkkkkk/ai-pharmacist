@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="profile-card">
+    <view class="avatar">{{roleText === '子女' ? '子' : '老'}}</view>
+    <view class="info">
+      <view class="name">{{nickname}}</view>
+      <view class="role">{{roleText}}</view>
+    </view>
+  </view>
+
+  <view class="cell">
+    <view class="cell-label">手机号</view>
+    <view class="cell-value">{{phone}}</view>
+  </view>
+
+  <view class="cell" bindtap="goBind">
+    <view class="cell-label">家人管理</view>
+    <view class="cell-value">绑定家人 ›</view>
+  </view>
+
+  <button class="logout-btn" bindtap="logout">退出登录</button>
+</view>

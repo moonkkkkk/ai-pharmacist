@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="empty" wx:if="{{!familyOpenid}}">
+    <text>还没有关联家人，去「我的」里绑定吧</text>
+  </view>
+
+  <block wx:else>
+    <view class="family-tabs" wx:if="{{familyList.length > 1}}">
+      <view
+        wx:for="{{familyList}}"
+        wx:key="openid"
+        class="tab {{familyOpenid === item.openid ? 'active' : ''}}"
+        data-openid="{{item.openid}}"
+        bindtap="changeFamily"
+      >{{item.nickname || '家人'}}</view>
+    </view>
+
+    <view class="month-nav">
+      <view class="arrow" bindtap="prevMonth">‹</view>
+      <view class="month-text">{{month}}</view>
+      <view class="arrow" bindtap="nextMonth">›</view>
+    </view>
+
+    <view class="heat-card">
+      <view class="week-row">
+        <text wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this" class="week-cell">{{item}}</text>
+      </view>
+      <view class="dot-grid">
+        <view class="dot-cell" wx:for="{{grid}}" wx:key="key">
+          <view wx:if="{{item.empty}}" class="dot blank"></view>
+          <view wx:else class="dot {{item.state}}">{{item.day}}</view>
+        </view>
+      </view>
+      <view class="legend">
+        <view class="lg"><view class="lg-dot full"></view>全服</view>
+        <view class="lg"><view class="lg-dot part"></view>部分</view>
+        <view class="lg"><view class="lg-dot miss"></view>漏服</view>
+        <view class="lg"><view class="lg-dot none"></view>无记录</view>
+      </view>
+    </view>
+
+    <view class="stats">本月：服药率 {{stats.rate}}%，漏服 {{stats.missed}} 次</view>
+
+    <view class="section-title">漏服记录</view>
+    <view class="empty-sub" wx:if="{{!missedList.length}}">
+      <text>🎉 本月无漏服</text>
+    </view>
+    <view class="missed-list" wx:else>
+      <view class="missed-item" wx:for="{{missedList}}" wx:key="_key">
+        <view class="missed-bar"></view>
+        <view class="missed-info">
+          <view class="missed-drug">{{item.drug_name}}</view>
+          <view class="missed-time">{{item.date}} {{item.time}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

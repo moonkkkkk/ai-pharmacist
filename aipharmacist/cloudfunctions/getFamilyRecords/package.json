@@ -1,0 +1,9 @@
+{
+  "name": "getFamilyRecords",
+  "version": "1.0.0",
+  "description": "子女端记录：家人按月热力图+漏服列表",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

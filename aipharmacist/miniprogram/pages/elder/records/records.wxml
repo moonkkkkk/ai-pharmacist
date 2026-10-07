@@ -1,0 +1,94 @@
+<view class="container">
+  <view class="sub-bar on" wx:if="{{isChild}}" bindtap="onAddQuota">
+    <view class="sub-dot on"></view>
+    <view class="sub-text">漏服通知：剩余 {{quota}} 次</view>
+    <view class="sub-tag">{{quota >= 99 ? '已满' : '增加次数'}}</view>
+  </view>
+
+  <view class="member-tabs" wx:if="{{memberList.length > 1}}">
+    <view
+      wx:for="{{memberList}}"
+      wx:key="openid"
+      class="member-tab {{owner_openid === item.openid ? 'active' : ''}}"
+      data-openid="{{item.openid}}"
+      bindtap="changeMember"
+    >{{item.isSelf ? '自己' : item.nickname}}</view>
+  </view>
+
+  <view class="status-row">
+    <view class="status-item">
+      <view class="num ok">{{overview.taken}}</view>
+      <view class="label">已服</view>
+    </view>
+    <view class="status-item">
+      <view class="num wait">{{overview.pending}}</view>
+      <view class="label">待服</view>
+    </view>
+    <view class="status-item">
+      <view class="num miss">{{overview.missed}}</view>
+      <view class="label">漏服</view>
+    </view>
+  </view>
+
+  <view class="cal-card">
+    <view class="cal-header">
+      <view class="cal-nav" bindtap="prevMonth">‹</view>
+      <view class="cal-title">{{year}}年{{month + 1}}月</view>
+      <view class="cal-nav" bindtap="nextMonth">›</view>
+    </view>
+
+    <view class="cal-week">
+      <text class="cal-weekday" wx:for="{{weekdays}}" wx:key="*this">{{item}}</text>
+    </view>
+
+    <view class="cal-grid">
+      <view
+        wx:for="{{cells}}"
+        wx:key="key"
+        class="cal-cell {{item.day === 0 ? 'blank' : ''}}"
+        data-date="{{item.date}}"
+        bindtap="tapDay"
+      >
+        <view class="cal-day {{item.isSelected ? 'selected' : ''}} {{item.isToday ? 'today' : ''}}">
+          {{item.day || ''}}
+        </view>
+        <view class="cal-dot {{item.isMiss ? 'miss' : ''}}" wx:if="{{item.hasLog}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="record-card">
+    <view class="record-title">{{selectedLabel}} · 用药记录</view>
+
+    <view class="record-empty" wx:if="{{!hasRecord}}">
+      <view class="empty-date">{{selectedLabel}}</view>
+      <view class="empty-text">没有打卡记录</view>
+    </view>
+
+    <view class="log-item" wx:for="{{dayLogs}}" wx:key="_id">
+      <view class="log-left">
+        <view class="log-name">{{item.drug_name}}</view>
+        <view class="log-time">{{item.time}} · {{item.timing || ''}}</view>
+      </view>
+      <view class="log-status {{item.status === '已服' ? 'ok' : (item.status === '漏服' ? 'miss' : 'todo')}}">{{item.status}}</view>
+    </view>
+  </view>
+
+  <view class="trend-block">
+    <view class="trend-title">近 7 天服药完成率</view>
+    <canvas type="2d" id="trend-chart" class="trend-canvas"></canvas>
+  </view>
+
+  <view class="summary-block {{summaryLocked ? 'locked' : ''}}">
+    <block wx:if="{{!summaryLocked}}">
+      <view class="summary-title">{{ownerName}} · 本周小结</view>
+      <view class="summary-text">{{summary || '点击下方「生成周报」查看本周总结'}}</view>
+    </block>
+    <view class="summary-lock-text" wx:else>服药满一周后可生成周报</view>
+  </view>
+
+  <view class="btn-row">
+    <button class="report-btn" bindtap="genWeekly">生成周报</button>
+    <button class="report-btn" bindtap="goMonthly">生成月报</button>
+  </view>
+</view>
